@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+ul{
+	list-style-type: none;
+}
+/* Навигация */
+.nav{
+	display: flex;
+	width: 100%;
+	background: #FF7340;	
+}
+
+.nav_button{
+	padding: 2.5%;
+	transition: 1s;
+	cursor: pointer;
+}
+
+.nav_button:hover{
+	background: #BF5730;
+	transition: 1s;
+}
+
+/* Конец навигации */
