@@ -10,7 +10,7 @@
 <body>
 	<div class="nav">
 		<div class="logo">
-			<img src="{%static 'img/cadrlogo.png'%}" alt="">
+			<a href="{% url 'main' %}"><img src="{%static 'img/cadrlogo.png'%}" alt=""></a>
 		</div>
 		{% for i in categoryshow %}
 			<div class="nav_button">

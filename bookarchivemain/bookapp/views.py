@@ -2,7 +2,7 @@ from django.shortcuts import render
 from bookapp.models import *
 # Create your views here.
 
-def index(request):
+def main(request):
     getitems = Categories.objects.all()
     data = {
         'categoryshow': getitems,

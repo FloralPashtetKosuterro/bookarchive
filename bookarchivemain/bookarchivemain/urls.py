@@ -20,5 +20,5 @@ from bookapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', index)
+    path('main/', main, name='main')
 ]
