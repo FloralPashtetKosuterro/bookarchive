@@ -9,15 +9,15 @@
 </head>
 <body>
 	<div class="nav">
-		<div class="nav_button">
-			{% for i in menu %}
-				<ul>
-					<li>
-					
-					</li>
-				</ul>
-			{% endfor %}
-		</div><!--div class="nav_button"-->
+		{% for i in categoryshow %}
+			<div class="nav_button">
+					<ul>
+						<li>
+							<p>{{ i.category }}</p>
+						</li>
+					</ul>
+			</div><!--div class="nav_button"-->
+		{% endfor %}
 	</div><!--div class="nav"-->
 
 </body>
