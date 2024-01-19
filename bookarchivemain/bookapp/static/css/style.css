@@ -48,11 +48,11 @@ body{
 }
 
 .profile{
-    margin-left:30%;
     height:100%;
     width:100%;
     background:#e55d3d;
     display:flex;
+	justify-content: flex-end
 }
 .profile_name{
     display:flex;
@@ -71,3 +71,31 @@ body{
     height:100%;
 }
 /* Конец навигации */
+
+/* Начало контейнера */
+
+.container{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.container h1{
+	text-align: center;
+	padding: 2.5%;
+}
+
+.bookblock{
+	margin: 0 auto;
+	width: 50%;
+	height: 100%;
+	background: white;
+}
+
+.bookblock h1{
+	text-align: center;
+}
+
+/* Конец контейнера */
