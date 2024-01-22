@@ -14,6 +14,9 @@ ul{
 body{
 	background: #FFC19A;
 }
+hr{
+    width: 100%;
+}
 /* Конец констант */
 
 /* Навигация */
@@ -43,8 +46,8 @@ body{
 .nav_button p{
 	font-size: 25px;
 	color: white;
-	font-family: Calibri;
 	font-weight: 400;
+	font-family:'myfont';
 }
 .list{
     cursor:pointer;
@@ -64,7 +67,7 @@ body{
 .profile_name p{
     font-size: 25px;
 	color: white;
-	font-family: Calibri;
+	font-family:'myfont';
 	font-weight: 400;
 	margin-right:10%;
 }
@@ -88,26 +91,33 @@ body{
 .container h1{
 	text-align: center;
 	padding: 2.5%;
+	font-family:'myfont';
 }
 
-.bookblock{
+.newblock{
 	margin: 0 auto;
 	width: 50%;
 	height: 100%;
 	background: white;
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
 }
-
-.currentbook h1{
+.currentnew{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2%;
+}
+.currentnew h1{
 	width: 25%;
 	height: 25%;
 	text-align: center;
 	font-family: 'myfont';
 }
-.currentbook img{
-	width: 25%;
-	height: 25%;
-	margin:2.5%;
 
+.currentnew p{
+    font-family: 'myfont';
 }
 
 /* Конец контейнера */

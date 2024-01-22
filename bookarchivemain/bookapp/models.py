@@ -9,3 +9,14 @@ class Categories(models.Model):
         verbose_name_plural = "Категории"
     def __str__(self):
         return self.category
+
+class News(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    news_name = models.CharField(max_length = 50)
+    news_time = models.DateField()
+    news_contains = models.CharField(max_length = 365)
+    class Meta():
+        verbose_name = "Новость"
+        verbose_name_plural = "Новости"
+    def __str__(self):
+        return self.news_name

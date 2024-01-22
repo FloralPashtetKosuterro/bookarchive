@@ -37,11 +37,15 @@
 	</div><!--div class="nav"-->
 	<div class="container">
 		<h1>Новости</h1>
-		<div class="bookblock">
-			<div class="currentbook">
-				<h1>Заглушка</h1>
-				<img src="{% static 'img/1Cpabl.jpg' %}" alt="">
+		<div class="newblock">
+			{% for new in news %}
+			<div class="currentnew">
+				<h1>{{ new.news_name }}</h1>
+				<hr>
+				<p>{{ new.news_time }}</p>
+				<p>{{ new.news_contains }}</p>
 			</div>
+			{% endfor %}
 		</div>
 	</div>
 </body>
