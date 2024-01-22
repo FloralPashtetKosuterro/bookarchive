@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Categories(models.Model):
     id = models.BigAutoField(primary_key=True)
     category = models.CharField(max_length = 25)
@@ -15,6 +14,7 @@ class News(models.Model):
     news_name = models.CharField(max_length = 50)
     news_time = models.DateField()
     news_contains = models.CharField(max_length = 365)
+    news_image = models.ImageField(blank=True, null=True)
     class Meta():
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
