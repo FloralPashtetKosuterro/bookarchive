@@ -15,7 +15,7 @@ body{
 	background: #FFC19A;
 }
 hr{
-    width: 100%;
+    width: 90%;
 }
 /* Конец констант */
 
@@ -104,11 +104,16 @@ hr{
 	flex-direction: column;
 }
 .currentnew{
+    width:100%;
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding:2%;
 }
+
+.currentnew img{
+    width:50%;
+}
+
 .currentnew h1{
 	width: 25%;
 	height: 25%;
@@ -118,6 +123,7 @@ hr{
 
 .currentnew p{
     font-family: 'myfont';
+    padding:2%;
 }
 
 /* Конец контейнера */
