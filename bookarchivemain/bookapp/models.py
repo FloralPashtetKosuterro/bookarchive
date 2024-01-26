@@ -20,3 +20,15 @@ class News(models.Model):
         verbose_name_plural = "Новости"
     def __str__(self):
         return self.news_name
+
+class Books(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    book_name = models.CharField(max_length=50)
+    book_img = models.ImageField(blank=True, null=True)
+    book_description = models.CharField(max_length = 255)
+    books_time = models.DateField()
+    class Meta():
+        verbose_name = "Книга"
+        verbose_name_plural = "Книги"
+    def __str__(self):
+        return self.book_name

@@ -1,0 +1,26 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Юный писатель</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/booksstyle.css' %}">
+</head>
+<body>
+  <div class="nav">
+    <div class="logo">
+        <a href="{% url 'books' %}"><img src="{% static 'img/logoicon.png' %}" alt=""></a>
+    </div>
+  </div>
+  <div class="nav2">
+    <div class="books_block">
+      {% for show in bookshow %}
+      <div class="currentbook">
+          <h3>{{show.book_name}}</h3>
+          <img src="/static/img/{{ show.book_img }}" alt="">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

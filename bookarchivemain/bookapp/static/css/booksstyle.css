@@ -1,0 +1,60 @@
+/* Константы */
+*{
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family: 'myfont';
+	src: url(../fonts/myfont.ttf);
+}
+
+body{
+	background: #473D3D;
+}
+
+.nav{
+	height:150px;
+	width: 100%;
+	position:fixed;
+	background: #2F1A1A;
+}
+.logo{
+    margin-left:4%;
+}
+
+.nav2{
+    height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	flex-direction: column;
+}
+
+.books_block{
+    width:90%;
+    height:100%;
+    margin-top:10%;
+    background:#E4CBBA;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.currentbook{
+    margin:1.5%;
+    width:30%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.currentbook h3{
+    padding:2%;
+    font-family:myfont;
+}
+
+.currentbook img{
+    width:60%;
+    height:50%;
+}

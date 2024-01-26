@@ -18,5 +18,12 @@ def katalog(request):
 def newbooks(request):
     return render(request, 'bookapp/newbooks.html')
 
+def books(request):
+    outbooks = Books.objects.all()
+    data ={
+        'bookshow':outbooks
+    }
+    return render(request, 'bookapp/books.html',data)
+
 def events(request):
     return  render(request, 'bookapp/limited_event.html')
