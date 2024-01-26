@@ -20,5 +20,6 @@ from bookapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', main, name='main')
+    path('main/', main, name='main'),
+    path('limited_event/', events, name = 'events')
 ]

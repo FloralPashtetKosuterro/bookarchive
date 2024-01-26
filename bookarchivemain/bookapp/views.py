@@ -10,3 +10,6 @@ def main(request):
         'news': getnews,
     }
     return render(request, 'bookapp/index.html', data)
+
+def events(request):
+    return  render(request, 'bookapp/limited_event.html')

@@ -12,15 +12,15 @@
 		<div class="logo">
 			<a href="{% url 'main' %}"><img src="{%static 'img/cadrlogo.png'%}" alt=""></a>
 		</div>
-		{% for i in categoryshow %}
 			<div class="nav_button">
 					<ul>
 						<li>
-							<p>{{ i.category }}</p>
+							<a href="{% url 'main' %}"><p>Каталог</p></a>
 						</li>
+						<li><a href="{% url 'main' %}"><p>Новинки</p></a></li>
+						<li><a href="{% url 'events' %}"><p>Ограниченное событие</p></a></li>
 					</ul>
 			</div><!--div class="nav_button"-->
-		{% endfor %}
 		<div class="profile">
 			<div class="profile_name">
 				<div class="list">
