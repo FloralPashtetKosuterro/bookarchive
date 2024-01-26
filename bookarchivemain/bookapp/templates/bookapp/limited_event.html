@@ -1,11 +1,19 @@
 {% extends 'bookapp/index.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%load static%}
 
-</body>
-</html>
+{% block title %}
+    Ограниченное событие
+{% endblock title %}
+{% block page_zagolovok%}
+    <h1>Список событий</h1>
+{% endblock page_zagolovok %}
+{% block event_cont %}
+    <div class="event_cont">
+        <div class="event_block">
+            {% block event_block %}
+            <h1>dawwadawd</h1>
+            {% endblock event_block %}
+        </div>
+    </div>
+{% endblock event_cont %}
+

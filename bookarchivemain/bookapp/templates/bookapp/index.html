@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-	<title>Юный писатель | Новости</title>
+	<title>{% block title %} Юный писатель | Новости {% endblock title %}</title>
 </head>
 <body>
 	<div class="nav">
@@ -15,10 +15,14 @@
 			<div class="nav_button">
 					<ul>
 						<li>
-							<a href="{% url 'main' %}"><p>Каталог</p></a>
+							<a href="{% url 'katalogurl' %}"><p>Каталог</p></a>
 						</li>
-						<li><a href="{% url 'main' %}"><p>Новинки</p></a></li>
-						<li><a href="{% url 'events' %}"><p>Ограниченное событие</p></a></li>
+						<li>
+							<a href="{% url 'newsbooks' %}"><p>Новинки</p></a>
+						</li>
+						<li>
+							<a href="{% url 'events' %}"><p>Ограниченное событие</p></a>
+						</li>
 					</ul>
 			</div><!--div class="nav_button"-->
 		<div class="profile">
@@ -36,7 +40,14 @@
 		</div><!--div class="profile"-->
 	</div><!--div class="nav"-->
 	<div class="container">
-		<h1>Новости</h1>
+		<div class="page_zagolovok">{% block page_zagolovok%}
+			<h1>НОВОСТИ</h1>
+			{% endblock page_zagolovok %}
+		</div>
+		{% block event_cont %}
+			{% block event_block %}
+			{% endblock event_block %}
+		{% endblock event_cont %}
 		<div class="newblock">
 			{% for new in news %}
 			<div class="currentnew">
