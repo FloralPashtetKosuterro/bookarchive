@@ -1,0 +1,6 @@
+{% extends 'bookapp/books.html' %}
+{%load static%}
+
+{% block bookimg %}
+    <img src="/static/img/{{ show.book_img }}" alt="">
+{% endblock bookimg %}

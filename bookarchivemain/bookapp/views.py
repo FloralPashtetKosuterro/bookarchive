@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from bookapp.models import *
 from django.utils import timezone
+from django.views.generic import ListView
 # Create your views here.
 
 def main(request):
@@ -24,6 +25,12 @@ def books(request):
         'bookshow':outbooks
     }
     return render(request, 'bookapp/books.html',data)
+def booksinside(request, book_id):
+    book = Books.objects.filter(id=book_id)
+    data = {
+        'books': book,
+    }
+    return render(request, 'bookapp/currentbook.html', data)
 
 def events(request):
     return  render(request, 'bookapp/limited_event.html')

@@ -24,5 +24,6 @@ urlpatterns = [
     path('limited_event/', events, name = 'events'),
     path('katalog/', katalog, name='katalogurl'),
     path('newbooks/', newbooks, name='newsbooks'),
-    path('books/', books, name='books')
+    path('books/', books, name='books'),
+    path('books/<int:book_id>', booksinside, name='insidebook')
 ]

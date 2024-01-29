@@ -16,11 +16,16 @@
     <div class="books_block">
       {% for show in bookshow %}
       <div class="currentbook">
-          <h3>{{show.book_name}}</h3>
-          <img src="/static/img/{{ show.book_img }}" alt="">
+          <a href="{% url 'insidebook' show.pk %}"><img src="/static/img/{{ show.book_img }}" alt=""></a>
+          <div class="bookname">
+              <h3>{{show.book_name}}</h3>
+          </div>
       </div>
       {% endfor %}
     </div>
+      {% block bookimg %}
+        <img src="" alt="">
+      {% endblock bookimg %}
   </div>
 </body>
 </html>
