@@ -2,5 +2,15 @@
 {%load static%}
 
 {% block bookimg %}
-    <img src="/static/img/{{ show.book_img }}" alt="">
+    <div class="bookimg">
+    {% for i in books %}
+    <img src="/static/img/{{i.book_img}}" alt="">
+        <div class="bookinfo">
+            <h3>{{i.book_name}}</h3>
+            <hr>
+            <h3>Описание:</h3>
+            <p>{{i.book_description}}</p>
+        </div>
+    {% endfor %}
+    </div>
 {% endblock bookimg %}

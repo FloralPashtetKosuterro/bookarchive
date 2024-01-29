@@ -80,3 +80,31 @@ body{
     justify-content: center;
     position:absolute;
 }
+.bookimg{
+    width:100%;
+    display:flex;
+    margin-left:5%;
+}
+
+.bookimg h3{
+    z-index:1;
+    padding:2.5%;
+    color:#E4CBBA;
+    font-family:myfont;
+}
+.bookimg p{
+    z-index:1;
+    padding:2.5%;
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+.bookimg img{
+   width:20%;
+}
+
+.bookinfo{
+    width:75%;
+    display:flex;
+    flex-direction: column;
+}
