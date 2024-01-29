@@ -1,6 +1,6 @@
 {% extends 'bookapp/books.html' %}
 {%load static%}
-
+{% block title %} {% for name in books %} {{name.book_name}} {% endfor %}{% endblock title %}
 {% block bookimg %}
     <div class="bookimg">
     {% for i in books %}
@@ -13,4 +13,5 @@
         </div>
     {% endfor %}
     </div>
+    <a href="{% url 'createglava' %}"><button>Press</button></a>
 {% endblock bookimg %}

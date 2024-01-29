@@ -31,6 +31,8 @@ def booksinside(request, book_id):
         'books': book,
     }
     return render(request, 'bookapp/currentbook.html', data)
+def create_glava(request):
 
+    return render(request, 'bookapp/createglava.html')
 def events(request):
     return  render(request, 'bookapp/limited_event.html')

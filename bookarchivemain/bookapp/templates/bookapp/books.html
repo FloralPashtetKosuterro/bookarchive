@@ -3,8 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Юный писатель</title>
+    <title>{% block title %} Юный писатель {% endblock title %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/booksstyle.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css"/>
 </head>
 <body>
   <div class="nav">
@@ -13,6 +14,7 @@
     </div>
   </div>
   <div class="nav2">
+      {% block nav2 %}
     <div class="books_block">
       {% for show in bookshow %}
       <div class="currentbook">
@@ -26,6 +28,15 @@
       {% block bookimg %}
         <img src="" alt="">
       {% endblock bookimg %}
+      {% endblock nav2 %}
   </div>
+<!---->
+
+{% block script %}
+  <script>
+
+  </script>
+{% endblock script %}
+
 </body>
 </html>
