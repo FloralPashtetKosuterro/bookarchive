@@ -1,13 +1,22 @@
-{% extends 'bookapp/books.html' %}
+{% extends 'bookapp/currentbook.html' %}
 {%load static%}
 {% block title %} Добавить главу {% endblock title %}
-    {% block nav2 %}
-    {% endblock nav2%}
-    {% block textedit%}
-    <div class="textedit">
 
-    </div>
+{% block nav2 %}
+
+{% endblock nav2%}
+
+    <div class="textedit">
+        {% block textedit%}
+            <div class="newchapter">
+                {% for show in cycle %}
+                    <p>{{show.part_name|safe}}</p>
+                    <p>{{show.part_content|safe}}</p>
+                {% endfor %}
+        </div>
     {% endblock textedit %}
+    </div>
+
 {% block script %}
         <script src="{% static 'js/script.js'%}"></script>
 {% endblock script %}
