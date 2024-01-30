@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Categories(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -36,6 +37,6 @@ class Books(models.Model):
 class Parts(models.Model):
     id= models.BigAutoField(primary_key = True)
     part_name=models.TextField()
-    part_content=models.TextField()
+    part_content=RichTextField()
     book_id = models.BigIntegerField()
 
