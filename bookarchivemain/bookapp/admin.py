@@ -4,3 +4,4 @@ from bookapp.models import *
 admin.site.register(Categories)
 admin.site.register(News)
 admin.site.register(Books)
+admin.site.register(Parts)

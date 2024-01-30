@@ -37,6 +37,10 @@ class Books(models.Model):
 class Parts(models.Model):
     id= models.BigAutoField(primary_key = True)
     part_name=models.TextField()
-    part_content=RichTextField()
+    part_content=RichTextField(blank=True,null=True)
     book_id = models.BigIntegerField()
-
+    class Meta():
+        verbose_name = "Глава"
+        verbose_name_plural = "Главы"
+    def __str__(self):
+        return self.part_name
