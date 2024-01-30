@@ -113,9 +113,12 @@ body{
 #edit{
     width:100%;
     height:100%;
+    padding:10%;
 }
 .textedit{
-    margin-top:5%;
-    width:50%;
+    display:flex;
+    justify-content:center;
+    margin-top: 10%;
+    width:100%;
     height:100%;
 }

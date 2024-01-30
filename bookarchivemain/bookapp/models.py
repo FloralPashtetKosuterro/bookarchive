@@ -32,3 +32,10 @@ class Books(models.Model):
         verbose_name_plural = "Книги"
     def __str__(self):
         return self.book_name
+
+class Parts(models.Model):
+    id= models.BigAutoField(primary_key = True)
+    part_name=models.TextField()
+    part_content=models.TextField()
+    book_id = models.BigIntegerField()
+

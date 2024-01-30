@@ -2,11 +2,15 @@
 {%load static%}
 {% block title %} Добавить главу {% endblock title %}
     {% block nav2 %}
-    {% block textedit %}
-        <textarea id="edit"></textarea>
-      {% endblock textedit %}
     {% endblock nav2%}
-
+    {% block textedit%}
+    <div class="textedit">
+        <form action="">
+            <textarea id="edit"></textarea>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+    {% endblock textedit %}
 {% block script %}
         <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
