@@ -21,7 +21,7 @@ from bookapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', main, name='main'),
-    path('limited_event/', events, name = 'events'),
+    path('limited_events/', events, name = 'events'),
     path('katalog/', katalog, name='katalogurl'),
     path('newbooks/', newbooks, name='newsbooks'),
     path('books/', books, name='books'),
