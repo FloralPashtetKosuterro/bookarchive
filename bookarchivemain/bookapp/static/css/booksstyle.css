@@ -9,6 +9,7 @@
 }
 
 body{
+    width:99%;
 	background: #473D3D;
 }
 
@@ -84,7 +85,7 @@ body{
     width:100%;
     height:100%;
     display:flex;
-    margin-left:5%;
+    margin-left:2%;
 }
 
 .bookimg h3{
@@ -108,6 +109,15 @@ body{
     width:75%;
     display:flex;
     flex-direction: column;
+    padding:2%;
+}
+.bookinfo hr{
+    /* установим высоту контейнера */
+  height: 5px;
+  /* границы уберем */
+  border: 0;
+  /* установим нужный цвет, например, красный */
+  background-color: #E4CBBA;
 }
 
 .textedit{
@@ -116,4 +126,9 @@ body{
     margin-top: 10%;
     width:100%;
     height:100%;
+}
+
+.partblock form{
+    display:flex;
+    flex-direction:column;
 }

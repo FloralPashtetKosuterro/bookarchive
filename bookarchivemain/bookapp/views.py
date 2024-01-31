@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from bookapp.models import *
 from django.utils import timezone
 from django.views.generic import ListView
-
+from bookapp.forms import *
 
 # Create your views here.
 
@@ -34,16 +34,27 @@ def books(request):
 
 def booksinside(request, book_id):
     book = Books.objects.filter(id=book_id)
+    parts = Parts.objects.filter(book=book_id)
     data = {
-        'books': book
+        'books': book,
+        'parts': parts,
     }
     return render(request, 'bookapp/currentbook.html', data)
 
 
 def create_glava(request):
+    if request.method == 'POST':
+        form = PartsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('../')
+    else:
+        form = PartsForm()
     parts = Parts.objects.all()
+    books = Books.objects.all()
     data = {
-        'cycle': parts
+        'cycle': parts,
+        'showbooks':books,
     }
     return render(request, 'bookapp/createglava.html', data)
 

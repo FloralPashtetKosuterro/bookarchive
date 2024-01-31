@@ -8,12 +8,25 @@
 
     <div class="textedit">
         {% block textedit%}
-            <div class="newchapter">
-                {% for show in cycle %}
-                    <p>{{show.part_name|safe}}</p>
-                    <p>{{show.part_content|safe}}</p>
-                {% endfor %}
-        </div>
+            <div class="partblock" id="partblock">
+				<form action="" method="post">
+					{% csrf_token %}
+					<label for="part_name" id="part_name">Название темы:</label>
+					<input type="text" name="part_name" placeholder="Название главы">
+					<label for="part_content">Содержание:</label>
+					<textarea name="part_content" id="part_content" cols="30" rows="10">
+
+					</textarea>
+					<label for="book" id="book">Произведение:</label>
+					<select name="book" multiple>
+						{% for book in showbooks %}
+							<option value="{{book.id}}">{{book.book_name}}</option>
+						{% endfor %}
+					</select>
+					<br>
+    			<button class="button" onclick="sendText()">Submit text</button>
+				</form>
+			</div>
     {% endblock textedit %}
     </div>
 

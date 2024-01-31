@@ -12,6 +12,9 @@
             <p>{{i.book_description}}</p>
         </div>
     {% endfor %}
+        {% for i in parts %}
+            {{i.part_name}}
+        {% endfor %}
     </div>
     <a href="{% url 'createglava' %}"><button>Press</button></a>
 {% endblock bookimg %}

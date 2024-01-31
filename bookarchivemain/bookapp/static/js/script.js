@@ -1,8 +1,11 @@
 
-var textarea = document.getElementById('edit');
-sceditor.create(textarea, {
-	format: 'bbcode',
-	style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
-	height: "100%",
 
-});
+window.onload = () => {
+    CKEDITOR.replace("part_content");
+  };
+
+  function sendText() {
+    window.parent.postMessage(CKEDITOR.instances.part_content.getData(), "*");
+  };
+
+
