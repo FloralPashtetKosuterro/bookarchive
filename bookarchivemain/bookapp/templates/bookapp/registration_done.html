@@ -1,0 +1,12 @@
+{% extends 'bookapp/books.html' %}
+{%load static%}
+{% block regwindow %}
+
+    <div class="regwindow">
+        <h1>Добро пожаловать!</h1>
+
+        <p>Вы успешно зарегистрировались на сайте! Для входа в систему необходимо авторизоваться по этой <a href="{% url 'login' %}">ссылке</a></p>
+    </div>
+
+
+{% endblock regwindow %}

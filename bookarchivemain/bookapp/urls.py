@@ -15,16 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from bookapp.views import page_not_found
+from django.urls import path
+from bookapp.views import *
+from django.contrib.auth.views import LogoutView
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('bookapp.urls')),
+    path('main/', main, name='main'),
+    path('limited_events/', events, name = 'events'),
+    path('katalog/', katalog, name='katalogurl'),
+    path('newbooks/', newbooks, name='newsbooks'),
+    path('books/', books, name='books'),
+    path('books/<int:book_id>', booksinside, name='insidebook'),
+    path('createglava/',create_glava,name='createglava'),
+    path('registration/', registration, name='reg'),
+    path('login/', views.LoginUser.as_view(), name='login'),
 ]
-
-handler404 = page_not_found
-
-admin.site.site_header = 'Панель администрирования'
-admin.site.index_title = 'Данные пользователей'
-

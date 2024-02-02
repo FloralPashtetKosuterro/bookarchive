@@ -56,3 +56,4 @@ class Parts(models.Model):
 
     def __str__(self):
         return self.part_name
+

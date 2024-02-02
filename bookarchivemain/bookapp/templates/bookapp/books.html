@@ -13,9 +13,14 @@
     <div class="logo">
         <a href="{% url 'books' %}"><img src="{% static 'img/logoicon.png' %}" alt=""></a>
     </div>
+      <div class="auth">
+          <a href="{% url 'login' %}">Вход</a>
+          <a href="{% url 'reg' %}">Регистрация</a>
+      </div>
   </div>
+{% block nav2 %}
   <div class="nav2">
-      {% block nav2 %}
+
     <div class="books_block">
       {% for show in bookshow %}
       <div class="currentbook">
@@ -29,14 +34,22 @@
       {% block bookimg %}
         <img src="" alt="">
       {% endblock bookimg %}
-
-      {% endblock nav2 %}
-  </div>
+      {% block textedit %}
     <div class="textedit">
-        {% block textedit %}
-        {% endblock textedit %}
-    </div>
 
+    </div>
+    {% endblock textedit %}
+
+
+
+  </div>
+  {% endblock nav2 %}
+  {% block regwindow %}
+       <div class="regwindow">
+           <form action="" method="post">
+           </form>
+       </div>
+  {% endblock regwindow %}
 {% block script %}
   <script>
 

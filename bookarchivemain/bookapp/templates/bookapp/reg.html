@@ -1,0 +1,18 @@
+{% extends 'bookapp/books.html' %}
+{%load static%}
+{% block title %} Регистрация {% endblock title %}
+
+{% block nav2 %}
+{% endblock nav2 %}
+
+{% block regwindow %}
+<div class="regwindow">
+        <div class="currentform">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+</div>
+{% endblock regwindow %}
