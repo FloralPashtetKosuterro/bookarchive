@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.views.generic import ListView
 from bookapp.forms import *
 from django.urls import reverse_lazy
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -82,6 +83,10 @@ class LoginUser(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('books')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/books')
 
 def events(request):
     return render(request, 'bookapp/limited_event.html')

@@ -31,4 +31,5 @@ urlpatterns = [
     path('createglava/',create_glava,name='createglava'),
     path('registration/', registration, name='reg'),
     path('login/', views.LoginUser.as_view(), name='login'),
+    path('logout/', logout_view, name='logout'),
 ]

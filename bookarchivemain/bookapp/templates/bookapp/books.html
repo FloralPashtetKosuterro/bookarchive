@@ -14,8 +14,12 @@
         <a href="{% url 'books' %}"><img src="{% static 'img/logoicon.png' %}" alt=""></a>
     </div>
       <div class="auth">
+          {% if user.is_authenticated %}
+            <p>{{user.username}}</p> <a href="{% url 'logout' %}">Выйти</a>
+          {% else %}
           <a href="{% url 'login' %}">Вход</a>
           <a href="{% url 'reg' %}">Регистрация</a>
+          {% endif %}
       </div>
   </div>
 {% block nav2 %}

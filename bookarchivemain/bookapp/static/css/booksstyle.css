@@ -31,6 +31,11 @@ body{
     justify-content: flex-end;
 }
 
+.auth p {
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
 .nav a{
     margin:2%;
     text-decoration:none;
