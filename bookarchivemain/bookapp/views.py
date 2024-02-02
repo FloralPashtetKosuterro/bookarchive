@@ -88,5 +88,12 @@ def logout_view(request):
     logout(request)
     return redirect('/books')
 
+def lk(request):
+    books = Books.objects.all()
+    data = {
+        'showbooks': books,
+    }
+    return render(request, 'bookapp/lk.html',data)
+
 def events(request):
     return render(request, 'bookapp/limited_event.html')
