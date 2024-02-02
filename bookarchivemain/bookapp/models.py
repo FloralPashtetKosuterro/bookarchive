@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from django.contrib.auth import get_user_model
 
 class Categories(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -35,6 +35,7 @@ class Books(models.Model):
     book_img = models.ImageField(blank=True, null=True)
     book_description = models.CharField(max_length=255)
     books_time = models.DateField()
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta():
         verbose_name = "Книга"

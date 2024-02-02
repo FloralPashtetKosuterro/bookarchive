@@ -1,6 +1,9 @@
 {% extends 'bookapp/books.html' %}
-{% if user.is_authenticated %}
 {%load static%}
+
 {% block title %} Личный кабинет {{user.name}} {% endblock title %}
-{% else %}
-{% endif %}
+{% block regwindow %}
+    {% for i in showbooks %}
+        <img src="/static/img/{{i.book_img}}" alt="">
+    {% endfor %}
+{% endblock regwindow %}

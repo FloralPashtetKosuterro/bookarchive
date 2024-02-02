@@ -32,5 +32,5 @@ urlpatterns = [
     path('registration/', registration, name='reg'),
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', logout_view, name='logout'),
-    path('lk/', lk, name='lk')
+    path('lk/<int:id>', lk, name='lk')
 ]

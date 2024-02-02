@@ -6,7 +6,7 @@ from django.views.generic import ListView
 from bookapp.forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
-
+from django.core.exceptions import PermissionDenied
 # Create your views here.
 
 def main(request):
@@ -88,12 +88,15 @@ def logout_view(request):
     logout(request)
     return redirect('/books')
 
-def lk(request):
-    books = Books.objects.all()
-    data = {
-        'showbooks': books,
-    }
-    return render(request, 'bookapp/lk.html',data)
+def lk(request,id):
+    if request.user.id != id:
+        raise PermissionDenied()
+    else:
+        books = Books.objects.filter(author=id)
+        data = {
+            'showbooks': books,
+        }
+        return render(request, 'bookapp/lk.html', data)
 
 def events(request):
     return render(request, 'bookapp/limited_event.html')
