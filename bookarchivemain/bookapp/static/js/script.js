@@ -1,11 +1,7 @@
 
-
-window.onload = () => {
-    CKEDITOR.replace("part_content");
-  };
-
-  function sendText() {
-    window.parent.postMessage(CKEDITOR.instances.part_content.getData(), "*");
-  };
-
+ClassicEditor
+            .create( document.querySelector( '#part_content' ) )
+            .catch( error => {
+                console.error( error );
+            } );
 

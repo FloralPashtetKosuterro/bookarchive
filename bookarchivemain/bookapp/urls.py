@@ -28,9 +28,9 @@ urlpatterns = [
     path('newbooks/', newbooks, name='newsbooks'),
     path('books/', books, name='books'),
     path('books/<int:book_id>', booksinside, name='insidebook'),
-    path('createglava/',create_glava,name='createglava'),
     path('registration/', registration, name='reg'),
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', logout_view, name='logout'),
-    path('lk/<int:id>', lk, name='lk')
+    path('lk/<int:id>', lk, name='lk'),
+    path('lk/<int:id>/books/<int:book_id>/parts/', create_glava, name='createglava')
 ]

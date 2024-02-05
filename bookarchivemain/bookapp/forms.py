@@ -1,12 +1,20 @@
 from django import forms
+
+from . import views
 from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm
-
+from .views import *
 class PartsForm(forms.ModelForm):
     class Meta:
         model = Parts
         fields = '__all__'
+    #
+    # def __init__(self, **kwargs):
+    #     super(PartsForm, self).__init__(**kwargs)
+    #     if ['book',]:
+    #         self.fields['book'].queryset = Books.objects.filter(author=id)
+
 
 class RegForm(forms.ModelForm):
     username = forms.CharField(label="Логин")

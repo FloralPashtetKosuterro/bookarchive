@@ -45,21 +45,25 @@ def booksinside(request, book_id):
     return render(request, 'bookapp/currentbook.html', data)
 
 
-def create_glava(request):
-    if request.method == 'POST':
-        form = PartsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('../books')
+def create_glava(request,id, book_id):
+
+    if request.user.id != id:
+        raise PermissionDenied()
     else:
-        form = PartsForm()
-    parts = Parts.objects.all()
-    books = Books.objects.all()
-    data = {
-        'cycle': parts,
-        'showbooks':books,
-    }
-    return render(request, 'bookapp/createglava.html', data)
+        if request.method == 'POST':
+            form = PartsForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('../books')
+        else:
+            form = PartsForm()
+        parts = Parts.objects.filter(book=book_id)
+        books = Books.objects.filter(id=book_id)
+        data = {
+            'cycle': parts,
+            'showbooks':books,
+        }
+        return render(request, 'bookapp/createglava.html', data)
 
 def page_not_found(request, exception):
     return HttpResponse('<h1>Страница не найдена!</h1>')

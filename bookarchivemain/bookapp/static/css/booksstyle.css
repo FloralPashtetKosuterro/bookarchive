@@ -3,6 +3,10 @@
 	margin: 0;
 	padding: 0;
 }
+label{
+    color:#E4CBBA;
+    font-family:myfont;
+}
 @font-face {
 	font-family: 'myfont';
 	src: url(../fonts/myfont.ttf);
@@ -146,11 +150,13 @@ body{
 .textedit{
     display:flex;
     justify-content:center;
-    margin-top: 10%;
     width:100%;
     height:100%;
 }
 
+.partblock{
+    margin-top:10%;
+}
 .partblock form{
     display:flex;
     flex-direction:column;
@@ -172,6 +178,11 @@ body{
     flex-direction:column;
 }
 
+.regwindow p{
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
 form p{
     color:#E4CBBA;
     font-family:myfont;
@@ -189,4 +200,29 @@ form p{
 .currentform{
     width:20%;
     height:5%;
+}
+
+.lkbook{
+    display:flex;
+    width:100%;
+    height:100%;
+}
+
+.lkinfo{
+    display:flex;
+    width:100%;
+    margin-top:10%;
+    flex-wrap: wrap;
+}
+.lkinfo p{
+    color:#E4CBBA;
+    font-family:myfont;
+}
+.lkbooksinfo{
+    display: flex;
+    width:60%;
+}
+
+.lkbooksinfo img{
+    width:40%;
 }

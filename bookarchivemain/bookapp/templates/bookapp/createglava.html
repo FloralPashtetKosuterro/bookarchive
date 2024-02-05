@@ -1,22 +1,19 @@
-{% extends 'bookapp/currentbook.html' %}
+{% extends 'bookapp/baseshablon.html' %}
 {%load static%}
 {% block title %} Добавить главу {% endblock title %}
 
 {% block nav2 %}
 
 {% endblock nav2%}
-
-    <div class="textedit">
-        {% block textedit%}
+	{% block textedit%}
+    	<div class="textedit">
             <div class="partblock" id="partblock">
 				<form action="" method="post">
 					{% csrf_token %}
 					<label for="part_name" id="part_name">Название темы:</label>
 					<input type="text" name="part_name" placeholder="Название главы">
 					<label for="part_content">Содержание:</label>
-					<textarea name="part_content" id="part_content" cols="30" rows="10">
-
-					</textarea>
+					<textarea name="part_content" id="part_content" cols="30"></textarea>
 					<label for="book" id="book">Произведение:</label>
 					<select name="book" multiple>
 						{% for book in showbooks %}
@@ -24,11 +21,18 @@
 						{% endfor %}
 					</select>
 					<br>
-    			<button class="button" onclick="sendText()">Submit text</button>
+    			<button class="button" type="submit">Submit text</button>
 				</form>
+<!--				<form method="post" enctype="multipart/form-data">-->
+<!--					{% csrf_token %}-->
+<!--					{{ form.media }}-->
+<!--					{{ form.as_p }}-->
+<!--					<button type="submit">Сохранить</button>-->
+<!--				</form>-->
+
 			</div>
-    {% endblock textedit %}
-    </div>
+    	</div>
+	{% endblock textedit %}
 
 {% block script %}
         <script src="{% static 'js/script.js'%}"></script>

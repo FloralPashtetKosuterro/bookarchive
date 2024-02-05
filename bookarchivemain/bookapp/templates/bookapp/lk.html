@@ -1,9 +1,24 @@
-{% extends 'bookapp/books.html' %}
+{% extends 'bookapp/baseshablon.html' %}
 {%load static%}
 
 {% block title %} Личный кабинет {{user.name}} {% endblock title %}
-{% block regwindow %}
-    {% for i in showbooks %}
-        <img src="/static/img/{{i.book_img}}" alt="">
-    {% endfor %}
-{% endblock regwindow %}
+
+{% block lkbook %}
+    <div class="lkbook">
+        {% block lkinfo %}
+            <div class="lkinfo">
+                {% for i in showbooks %}
+                {% block lkbooksinfo %}
+                    <div class="lkbooksinfo">
+                            <img src="/static/img/{{i.book_img}}" alt="">
+                            <div class="bookdescription">
+                                <p>{{i.book_name}}</p>
+                            </div>
+                            <a href="{% url 'createglava' user.id i.pk %}">ss</a>
+                    </div>
+                {% endblock lkbooksinfo %}
+                {% endfor %}
+            </div>
+        {% endblock lkinfo %}
+    </div>
+{% endblock lkbook %}
