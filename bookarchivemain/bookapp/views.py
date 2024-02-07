@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from bookapp.models import *
 from django.contrib.auth.views import LoginView
 from django.utils import timezone
@@ -7,6 +7,8 @@ from bookapp.forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from django.core.exceptions import PermissionDenied
+
+
 # Create your views here.
 
 def main(request):
@@ -45,28 +47,30 @@ def booksinside(request, book_id):
     return render(request, 'bookapp/currentbook.html', data)
 
 
-def create_glava(request,id, book_id):
-
-    if request.user.id != id:
-        raise PermissionDenied()
-    else:
-        if request.method == 'POST':
-            form = PartsForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('../books')
+def create_glava(request, id):
+    if request.method == 'POST':
+        form = PartsForm(request.POST)
+        if form.is_valid():
+            book_id = id
+            part_name =form.cleaned_data['part_name']
+            part_content =form.cleaned_data['part_content']
+            book = Parts(part_name=part_name, part_content=part_content,book_id=book_id)
+            book.save()
+            return redirect('../books')
         else:
             form = PartsForm()
-        parts = Parts.objects.filter(book=book_id)
-        books = Books.objects.filter(id=book_id)
-        data = {
-            'cycle': parts,
-            'showbooks':books,
-        }
-        return render(request, 'bookapp/createglava.html', data)
+    parts = Parts.objects.all()
+    books = get_object_or_404(Books, id=id, author=request.user)
+    data = {
+        'cycle': parts,
+        'showbooks': books,
+    }
+    return render(request, 'bookapp/createglava.html', data)
+
 
 def page_not_found(request, exception):
     return HttpResponse('<h1>Страница не найдена!</h1>')
+
 
 def registration(request):
     if request.method == "POST":
@@ -80,6 +84,7 @@ def registration(request):
         form = RegForm()
     return render(request, 'bookapp/reg.html', {'form': form})
 
+
 class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'bookapp/login.html'
@@ -88,19 +93,19 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('books')
 
+
 def logout_view(request):
     logout(request)
     return redirect('/books')
 
-def lk(request,id):
-    if request.user.id != id:
-        raise PermissionDenied()
-    else:
-        books = Books.objects.filter(author=id)
-        data = {
-            'showbooks': books,
-        }
-        return render(request, 'bookapp/lk.html', data)
+
+def lk(request):
+    books = Books.objects.filter(author=request.user.id)
+    data = {
+        'showbooks': books,
+    }
+    return render(request, 'bookapp/lk.html', data)
+
 
 def events(request):
     return render(request, 'bookapp/limited_event.html')

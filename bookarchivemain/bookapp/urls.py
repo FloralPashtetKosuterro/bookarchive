@@ -31,6 +31,6 @@ urlpatterns = [
     path('registration/', registration, name='reg'),
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', logout_view, name='logout'),
-    path('lk/<int:id>', lk, name='lk'),
-    path('lk/<int:id>/books/<int:book_id>/parts/', create_glava, name='createglava')
+    path('lk/', lk, name='lk'),
+    path('lk/books/<int:id>/parts/', create_glava, name='createglava')
 ]

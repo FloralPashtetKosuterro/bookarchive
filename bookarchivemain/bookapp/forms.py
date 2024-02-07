@@ -5,10 +5,12 @@ from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm
 from .views import *
+
+
 class PartsForm(forms.ModelForm):
     class Meta:
         model = Parts
-        fields = '__all__'
+        fields = ['part_name', 'part_content']
     #
     # def __init__(self, **kwargs):
     #     super(PartsForm, self).__init__(**kwargs)
@@ -20,6 +22,7 @@ class RegForm(forms.ModelForm):
     username = forms.CharField(label="Логин")
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
     password2 = forms.CharField(label="Повтор пароля", widget=forms.PasswordInput)
+
     class Meta:
         model = get_user_model()
         fields = ['username', 'email', 'first_name', 'last_name', 'password', 'password2']
@@ -41,6 +44,8 @@ class RegForm(forms.ModelForm):
         if get_user_model().objects.filter(email=email).exists():
             raise forms.ValidationError("Такой E-mail уже существует!")
         return email
+
+
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

@@ -14,7 +14,7 @@
     </div>
       <div class="auth">
           {% if user.is_authenticated %}
-          <p><a href="{% url 'lk' user.id %}">{{user.username}}</a></p> <a href="{% url 'logout' %}">Выйти</a>
+          <p><a href="{% url 'lk' %}">{{user.username}}</a></p> <a href="{% url 'logout' %}">Выйти</a>
           {% else %}
           <a href="{% url 'login' %}">Вход</a>
           <a href="{% url 'reg' %}">Регистрация</a>

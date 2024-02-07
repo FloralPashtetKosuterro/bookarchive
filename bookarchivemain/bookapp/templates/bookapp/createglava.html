@@ -8,27 +8,16 @@
 	{% block textedit%}
     	<div class="textedit">
             <div class="partblock" id="partblock">
-				<form action="" method="post">
+				<form method="post">
 					{% csrf_token %}
+					<p>Произведение: {{showbooks.book_name}}</p>
 					<label for="part_name" id="part_name">Название темы:</label>
 					<input type="text" name="part_name" placeholder="Название главы">
 					<label for="part_content">Содержание:</label>
 					<textarea name="part_content" id="part_content" cols="30"></textarea>
-					<label for="book" id="book">Произведение:</label>
-					<select name="book" multiple>
-						{% for book in showbooks %}
-							<option value="{{book.id}}">{{book.book_name}}</option>
-						{% endfor %}
-					</select>
 					<br>
-    			<button class="button" type="submit">Submit text</button>
+    				<button class="button" type="submit">Добавить главу</button>
 				</form>
-<!--				<form method="post" enctype="multipart/form-data">-->
-<!--					{% csrf_token %}-->
-<!--					{{ form.media }}-->
-<!--					{{ form.as_p }}-->
-<!--					<button type="submit">Сохранить</button>-->
-<!--				</form>-->
 
 			</div>
     	</div>
