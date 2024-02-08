@@ -225,4 +225,19 @@ form p{
 
 .lkbooksinfo img{
     width:40%;
+    margin-bottom:4%;
+}
+
+.lkbooksinfo a{
+    text-decoration:none;
+    height:5%;
+    color:#E4CBBA;
+    font-family:myfont;
+    background: #2F1A1A;
+}
+
+.bookdescription{
+    display: flex;
+    flex-direction:column;
+    width:30%;
 }

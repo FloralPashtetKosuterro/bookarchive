@@ -13,8 +13,11 @@
                             <img src="/static/img/{{i.book_img}}" alt="">
                             <div class="bookdescription">
                                 <p>{{i.book_name}}</p>
+                                <p>Главы:</p>
+                                    {{parts.part_name}}
+                                <a href="{% url 'createglava' i.pk %}">Добавить главу</a>
                             </div>
-                            <a href="{% url 'createglava' i.pk %}">ss</a>
+
                     </div>
                 {% endblock lkbooksinfo %}
                 {% endfor %}

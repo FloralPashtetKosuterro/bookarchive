@@ -100,9 +100,11 @@ def logout_view(request):
 
 
 def lk(request):
-    books = Books.objects.filter(author=request.user.id)
+    books = Books.objects.filter(author_id=request.user.id)
+    parts = Parts.objects.select_related('book').all()
     data = {
         'showbooks': books,
+        'parts': parts,
     }
     return render(request, 'bookapp/lk.html', data)
 
