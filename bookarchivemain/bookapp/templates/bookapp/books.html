@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Юный писатель {% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/booksstyle.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/icon.png' %}">
+</head>
+<body>
+  <div class="nav">
+    <div class="logo">
+        <a href="{% url 'books' %}"><img src="{% static 'img/logoicon.png' %}" alt=""></a>
+    </div>
+      <div class="auth">
+          {% if user.is_authenticated %}
+          <p><a href="{% url 'lk' %}">{{user.username}}</a></p> <a href="{% url 'logout' %}">Выйти</a>
+          {% else %}
+          <a href="{% url 'login' %}">Вход</a>
+          <a href="{% url 'reg' %}">Регистрация</a>
+          {% endif %}
+      </div>
+  </div>
+{% block nav2 %}
+  <div class="nav2">
+
+    <div class="books_block">
+      {% for show in bookshow %}
+      <div class="currentbook">
+          <div class="bookcover">
+              <a href="{% url 'insidebook' show.pk %}"><img src="/static/img/{{ show.book_img }}" alt=""></a>
+          </div>
+          <div class="bookname">
+              <h3>{{show.book_name}}</h3>
+              <h3>Жанры:{{genres.genre_name}}</h3>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+      {% block bookimg %}
+        <img src="" alt="">
+      {% endblock bookimg %}
+      {% block textedit %}
+      {% endblock textedit %}
+
+
+
+  </div>
+  {% endblock nav2 %}
+
+  {% block regwindow %}
+  {% endblock regwindow %}
+
+{% block script %}
+  <script>
+
+  </script>
+{% endblock script %}
+
+</body>
+</html>
