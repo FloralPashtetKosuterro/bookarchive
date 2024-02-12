@@ -49,7 +49,7 @@ class Parts(models.Model):
     id = models.BigAutoField(primary_key=True)
     part_name = models.TextField()
     part_content = RichTextField(blank=True, null=True)
-    book = models.ForeignKey('Books', on_delete=models.CASCADE, null=True)
+    book = models.ForeignKey(Books, related_name='parts', on_delete=models.CASCADE, null=True)
 
     class Meta():
         verbose_name = "Глава"

@@ -215,6 +215,7 @@ form p{
     flex-wrap: wrap;
 }
 .lkinfo p{
+    padding:5%;
     color:#E4CBBA;
     font-family:myfont;
 }
@@ -229,6 +230,9 @@ form p{
 }
 
 .lkbooksinfo a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-decoration:none;
     height:5%;
     color:#E4CBBA;

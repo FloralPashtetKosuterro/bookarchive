@@ -7,17 +7,18 @@
     <div class="lkbook">
         {% block lkinfo %}
             <div class="lkinfo">
-                {% for i in showbooks %}
+                {% for book in showbooks %}
                 {% block lkbooksinfo %}
                     <div class="lkbooksinfo">
-                            <img src="/static/img/{{i.book_img}}" alt="">
+                            <img src="/static/img/{{book.book_img}}" alt="">
                             <div class="bookdescription">
-                                <p>{{i.book_name}}</p>
+                                <p>Произведение: {{ book.book_name }}</p>
                                 <p>Главы:</p>
-                                    {{parts.part_name}}
-                                <a href="{% url 'createglava' i.pk %}">Добавить главу</a>
+                                {% for part in book.parts.all %}
+                                    <p>{{ part.part_name }}</p>
+                                {% endfor %}
+                                <a href="{% url 'createglava' book.pk %}">Добавить главу</a>
                             </div>
-
                     </div>
                 {% endblock lkbooksinfo %}
                 {% endfor %}
