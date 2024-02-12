@@ -23,7 +23,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', main, name='main'),
-    path('limited_events/', events, name = 'events'),
     path('katalog/', katalog, name='katalogurl'),
     path('newbooks/', newbooks, name='newsbooks'),
     path('books/', books, name='books'),
@@ -32,5 +31,6 @@ urlpatterns = [
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', logout_view, name='logout'),
     path('lk/', lk, name='lk'),
-    path('lk/books/<int:id>/parts/', create_glava, name='createglava')
+    path('lk/books/<int:id>/parts/', create_glava, name='createglava'),
+    path('genres/<int:id>', genres, name='genres')
 ]

@@ -32,7 +32,21 @@
           </div>
           <div class="bookname">
               <h3>{{show.book_name}}</h3>
-              <h3>Жанры:{{genres.genre_name}}</h3>
+              <h3>{{show.author}}</h3>
+              {% if show.book_status == "Заброшено" %}
+                <img class="svgicons" src="/static/img/Заброшено.svg" alt="">
+              {% elif show.book_status == "В процессе" %}
+                <img class="svgicons" src="/static/img/В процессе.svg" alt="">
+              {% elif show.book_status == "Завершено" %}
+                <img class="svgicons" src="/static/img/Завершено.svg" alt="">
+              {% endif %}
+              <h3>Жанры:</h3>
+              <div class="genres">
+                  {% for genre in show.genres.all %}
+                    <a href="{% url 'genres' genre.id %}">{{genre.genre_name}}</a>
+                  {% endfor %}
+              </div>
+              <h3>{{show.book_description}}</h3>
           </div>
       </div>
       {% endfor %}
