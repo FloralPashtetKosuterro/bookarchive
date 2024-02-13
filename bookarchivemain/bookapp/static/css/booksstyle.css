@@ -14,7 +14,7 @@ label{
 
 body{
     width:100%;
-	background: #473D3D;
+	background: #2B201F;
 }
 
 .nav{
@@ -23,7 +23,7 @@ body{
 	height:150px;
 	width: 100%;
 	position:fixed;
-	background: #2F1A1A;
+	background: #51392E;
 	z-index:9999;
 }
 
@@ -64,7 +64,7 @@ body{
     width:90%;
     height:100%;
     margin-top:10%;
-    background:#E4CBBA;
+    background:#ECD9C2;
     display:flex;
     flex-wrap: wrap;
     justify-content: center
@@ -75,7 +75,7 @@ body{
     width: 65%;
     height:100%;
     display:flex;
-    background:#E4DFDE;
+    background:#F2F2F2;
     -webkit-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
     box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
 }
@@ -83,7 +83,6 @@ body{
 .currentbook h3{
     z-index:1;
     padding-top: 5.5%;
-    padding-bottom:5.5%;
     color:black;
     font-family:myfont;
 }
@@ -105,6 +104,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
 
 .bookimg{
     width:100%;
@@ -242,4 +243,23 @@ form p{
     display: flex;
     flex-direction:column;
     width:30%;
+}
+
+.genres{
+    display: flex;
+}
+
+.genres a{
+    background: #EBD9C1;
+    text-decoration: none;
+    color:black;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+    font-family: myfont;
+}
+
+.svgicons{
+    margin-top:2%;
+    width:25%;
 }

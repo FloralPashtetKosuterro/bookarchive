@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 
+
 class Categories(models.Model):
     id = models.BigAutoField(primary_key=True)
     category = models.CharField(max_length=25)
@@ -28,6 +29,7 @@ class News(models.Model):
     def __str__(self):
         return self.news_name
 
+
 class Genres(models.Model):
     id = models.BigAutoField(primary_key=True)
     genre_name = models.TextField()
@@ -39,13 +41,15 @@ class Genres(models.Model):
     def __str__(self):
         return self.genre_name
 
+
 class Books(models.Model):
     id = models.BigAutoField(primary_key=True)
     book_name = models.CharField(max_length=50)
     book_img = models.ImageField(blank=True, null=True)
     book_description = models.CharField(max_length=255)
     books_time = models.DateField()
-    genres = models.ManyToManyField(Genres, related_name='genres')
+    book_status = models.TextField(blank=True)
+    genres = models.ManyToManyField(Genres, related_name='books')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta():
@@ -68,4 +72,3 @@ class Parts(models.Model):
 
     def __str__(self):
         return self.part_name
-

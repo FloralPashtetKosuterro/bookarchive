@@ -32,7 +32,7 @@ def newbooks(request):
 def books(request):
     outbooks = Books.objects.all()
     data = {
-        'bookshow': outbooks
+        'bookshow': outbooks,
     }
     return render(request, 'bookapp/books.html', data)
 
@@ -107,5 +107,5 @@ def lk(request):
     return render(request, 'bookapp/lk.html', data)
 
 
-def events(request):
+def genres(request):
     return render(request, 'bookapp/limited_event.html')
