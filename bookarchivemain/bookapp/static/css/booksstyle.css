@@ -247,6 +247,7 @@ form p{
 
 .genres{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .genres a{

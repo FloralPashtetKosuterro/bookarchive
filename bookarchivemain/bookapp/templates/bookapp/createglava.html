@@ -11,7 +11,7 @@
 				<form method="post">
 					{% csrf_token %}
 					<p>Произведение: {{showbooks.book_name}}</p>
-					<label for="part_name" id="part_name">Название темы:</label>
+					<label for="part_name" id="part_name">Название главы:</label>
 					<input type="text" name="part_name" placeholder="Название главы">
 					<label for="part_content">Содержание:</label>
 					<textarea name="part_content" id="part_content" cols="30"></textarea>

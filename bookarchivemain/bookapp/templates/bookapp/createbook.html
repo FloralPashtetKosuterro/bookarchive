@@ -1,0 +1,38 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Добавить книгу {% endblock title %}
+
+{% block nav2 %}
+
+{% endblock nav2%}
+	{% block textedit%}
+    	<div class="textedit">
+            <div class="partblock" id="partblock">
+				<form method="post">
+					{% csrf_token %}
+					<label for="book_name" id="book_name">Название книги:</label>
+                    <input type="text" name="book_name" placeholder="Название главы">
+					<label for="book_description">Краткое описание:</label>
+					<textarea name="book_description" id="book_description" cols="60", rows="20" maxlength='250'></textarea>
+					<label for="genres">Жанры:</label>
+					{% for i in genres %}
+						<input type="checkbox" name="genres" id="genres" value="{{i.id}}">
+						{{i.genre_name}}
+					{% endfor %}
+					<label for="book_status">Статус:</label>
+					<select name="book_status" id="book_status">
+						{% for i in status %}
+							<option value="{{i.id}}">{{i.status_name}}</option>
+						{% endfor %}
+					</select>
+					<br>
+    				<button class="button" type="submit">Добавить главу</button>
+				</form>
+
+			</div>
+    	</div>
+	{% endblock textedit %}
+
+{% block script %}
+        <script src="{% static 'js/script.js'%}"></script>
+{% endblock script %}

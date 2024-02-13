@@ -107,5 +107,34 @@ def lk(request):
     return render(request, 'bookapp/lk.html', data)
 
 
-def genres(request):
-    return render(request, 'bookapp/limited_event.html')
+def genres(request, id):
+    outbooks = Books.objects.filter(genres=id)
+    data = {
+        'bookshow': outbooks,
+    }
+    return render(request, 'bookapp/books.html', data)
+
+def createbook(request):
+    if request.method == 'POST':
+        form = BooksForm(request.POST)
+        if form.is_valid():
+            author_id = request.user.id
+            book_name = form.cleaned_data['book_name']
+            book_description = form.cleaned_data['book_description']
+            book_status = form.cleaned_data['book_status']
+            book = Books(book_name=book_name,book_description=book_description, author_id=author_id, book_status=book_status)
+            book.genres.set(form.cleaned_data['genres'])
+            book.save()
+            return redirect('../lk')
+        else:
+            form = BooksForm()
+    books = Books.objects.all()
+    genres = Genres.objects.all()
+    status = Status.objects.all()
+    data={
+        'books': books,
+        'genres': genres,
+        'status': status,
+        'form': form,
+    }
+    return render(request, 'bookapp/createbook.html',data)
