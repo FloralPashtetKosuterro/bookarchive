@@ -1,0 +1,17 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} {% endblock title %}
+
+
+{% block partcontainer %}
+    <div class="partcontainer">
+         {% block textcontainer %}
+            <div class="textcontainer">
+                {% for i in parts %}
+                     <p class="part_name">{{i.part_name}}</p>
+                    <p>{{i.part_content|safe}}</p>
+                {% endfor %}
+            </div>
+        {% endblock textcontainer %}
+    </div>
+{% endblock partcontainer %}

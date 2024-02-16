@@ -16,7 +16,8 @@ body{
     width:100%;
 	background: #2B201F;
 }
-
+/* Конец Констант */
+/* Начало Навигации */
 .nav{
     align-items:center;
     display:flex;
@@ -50,6 +51,8 @@ body{
 .logo{
     margin-left:4%;
 }
+
+/* Конец Навигации */
 
 .nav2{
     height: 100%;
@@ -108,7 +111,7 @@ body{
 
 
 .bookimg{
-    width:100%;
+    width: 80%;
     height:100%;
     display:flex;
     margin-left:2%;
@@ -120,6 +123,7 @@ body{
     color:#E4CBBA;
     font-family:myfont;
 }
+
 .bookimg p{
     z-index:1;
     padding:2.5%;
@@ -137,6 +141,7 @@ body{
     flex-direction: column;
     padding:2%;
 }
+
 .bookinfo hr{
     /* установим высоту контейнера */
   height: 5px;
@@ -144,6 +149,51 @@ body{
   border: 0;
   /* установим нужный цвет, например, красный */
   background-color: #E4CBBA;
+}
+
+.parts{
+    margin-top:5%;
+    display: flex;
+    flex-direction: column;
+    background:#ECD9C2;
+    width:50%;
+}
+
+.parts p{
+    padding:2%;
+    color:#000000;
+    font-family:myfont;
+    align-self:center;
+}
+
+.parts a{
+    color:#000000;
+    font-family:myfont;
+    padding:2.5%;
+    background:white;
+    border: solid black 1px;
+}
+
+.partcontainer{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    background:#ECD9C2;
+}
+
+.textcontainer{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    background:#F2F2F2;
+}
+
+.textcontainer p{
+    padding:2%;
+}
+
+.part_name{
+    align-self:center;
 }
 
 .textedit{
@@ -156,9 +206,11 @@ body{
 .partblock{
     margin-top:10%;
 }
+
 .partblock form{
     display:flex;
     flex-direction:column;
+
 }
 
 .regwindow{
@@ -196,11 +248,41 @@ form p{
     background:#2F1A1A;
     border-radius:10%;
 }
+
 .currentform{
     width:20%;
     height:5%;
 }
 
+
+
+.bookdescription{
+    display: flex;
+    flex-direction:column;
+    width:30%;
+}
+
+.genres{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.genres a{
+    background: #EBD9C1;
+    text-decoration: none;
+    color:black;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+    font-family: myfont;
+}
+
+.svgicons{
+    margin-top:2%;
+    width:15%;
+}
+
+/* Начало личного кабинета */
 .lkbook{
     display:flex;
     width:100%;
@@ -210,9 +292,10 @@ form p{
 .lkinfo{
     display:flex;
     width:100%;
-    margin-top:10%;
+    margin-top: 5%;
     flex-wrap: wrap;
 }
+
 .lkinfo p{
     padding:5%;
     color:#E4CBBA;
@@ -239,28 +322,14 @@ form p{
     background: #2F1A1A;
 }
 
-.bookdescription{
-    display: flex;
-    flex-direction:column;
-    width:30%;
+.buttons{
+    margin-top: 15%;
 }
 
-.genres{
-    display: flex;
-    flex-wrap: wrap;
+.buttons a{
+    padding:2%;
+    color:#E4CBBA;
+    font-family:myfont;
+    text-decoration:none;
 }
-
-.genres a{
-    background: #EBD9C1;
-    text-decoration: none;
-    color:black;
-    padding: 1%;
-    margin: 1%;
-    border-radius: 10px;
-    font-family: myfont;
-}
-
-.svgicons{
-    margin-top:2%;
-    width:25%;
-}
+/* Конец личного кабинета */

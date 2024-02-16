@@ -3,6 +3,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 import datetime
 
+
 class Categories(models.Model):
     id = models.BigAutoField(primary_key=True)
     category = models.CharField(max_length=25)
@@ -40,14 +41,18 @@ class Genres(models.Model):
 
     def __str__(self):
         return self.genre_name
+
+
 class Status(models.Model):
     status_name = models.TextField()
+
     class Meta():
         verbose_name = "Статус"
         verbose_name_plural = "Статусы"
 
     def __str__(self):
         return self.status_name
+
 
 class Books(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -63,6 +68,8 @@ class Books(models.Model):
         verbose_name = "Книга"
         verbose_name_plural = "Книги"
 
+    def __str__(self):
+        return self.book_name
 
 
 class Parts(models.Model):
