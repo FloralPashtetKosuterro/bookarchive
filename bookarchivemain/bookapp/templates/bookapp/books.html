@@ -33,11 +33,11 @@
           <div class="bookname">
               <h3>{{show.book_name}}</h3>
               <h3>{{show.author}}</h3>
-              {% if show.book_status == "Заброшено" %}
+              {% if show.book_status_id == 1 %}
                 <img class="svgicons" src="/static/img/Заброшено.svg" alt="">
-              {% elif show.book_status == "В процессе" %}
+              {% elif show.book_status_id == 2 %}
                 <img class="svgicons" src="/static/img/В процессе.svg" alt="">
-              {% elif show.book_status == "Завершено" %}
+              {% elif show.book_status_id == 3 %}
                 <img class="svgicons" src="/static/img/Завершено.svg" alt="">
               {% endif %}
               <h3>Жанры:</h3>

@@ -8,25 +8,27 @@
 	{% block textedit%}
     	<div class="textedit">
             <div class="partblock" id="partblock">
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					<label for="book_name" id="book_name">Название книги:</label>
                     <input type="text" name="book_name" placeholder="Название главы">
 					<label for="book_description">Краткое описание:</label>
 					<textarea name="book_description" id="book_description" cols="60", rows="20" maxlength='250'></textarea>
-					<label for="genres">Жанры:</label>
+					<label class="control" for="genres">Жанры:
 					{% for i in genres %}
 						<input type="checkbox" name="genres" id="genres" value="{{i.id}}">
 						{{i.genre_name}}
 					{% endfor %}
+						</label>
 					<label for="book_status">Статус:</label>
 					<select name="book_status" id="book_status">
 						{% for i in status %}
 							<option value="{{i.id}}">{{i.status_name}}</option>
 						{% endfor %}
 					</select>
+					<input name="book_img" type="file" accept="image/*">
 					<br>
-    				<button class="button" type="submit">Добавить главу</button>
+    				<button class="button" type="submit">Добавить книгу</button>
 				</form>
 
 			</div>

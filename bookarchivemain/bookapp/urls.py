@@ -19,6 +19,8 @@ from django.urls import path
 from bookapp.views import *
 from django.contrib.auth.views import LogoutView
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('main/', main, name='main'),
@@ -32,5 +34,6 @@ urlpatterns = [
     path('lk/', lk, name='lk'),
     path('lk/books/<int:id>/parts/', create_glava, name='createglava'),
     path('genres/<int:id>', genres, name='genres'),
-    path('createbook/', createbook, name='createbook')
-]
+    path('createbook/', createbook, name='createbook'),
+    path('read/<int:parts_id>',read_part,name='read')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

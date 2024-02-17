@@ -47,14 +47,22 @@ def booksinside(request, book_id):
     return render(request, 'bookapp/currentbook.html', data)
 
 
+def read_part(request, parts_id):
+    parts= Parts.objects.filter(id=parts_id)
+    data = {
+        'parts':parts,
+    }
+    return render(request, 'bookapp/read.html', data)
+
+
 def create_glava(request, id):
     if request.method == 'POST':
         form = PartsForm(request.POST)
         if form.is_valid():
             book_id = id
-            part_name =form.cleaned_data['part_name']
-            part_content =form.cleaned_data['part_content']
-            book = Parts(part_name=part_name, part_content=part_content,book_id=book_id)
+            part_name = form.cleaned_data['part_name']
+            part_content = form.cleaned_data['part_content']
+            book = Parts(part_name=part_name, part_content=part_content, book_id=book_id)
             book.save()
             return redirect('../books')
         else:
@@ -100,11 +108,14 @@ def logout_view(request):
 
 
 def lk(request):
-    books = Books.objects.filter(author=request.user.id)
-    data = {
-        'showbooks': books,
-    }
-    return render(request, 'bookapp/lk.html', data)
+    if request.user.id == None:
+        raise PermissionDenied()
+    else:
+        books = Books.objects.filter(author=request.user.id)
+        data = {
+            'showbooks': books,
+        }
+        return render(request, 'bookapp/lk.html', data)
 
 
 def genres(request, id):
@@ -114,15 +125,19 @@ def genres(request, id):
     }
     return render(request, 'bookapp/books.html', data)
 
+
 def createbook(request):
     if request.method == 'POST':
-        form = BooksForm(request.POST)
+        form = BooksForm(request.POST, request.FILES)
         if form.is_valid():
             author_id = request.user.id
             book_name = form.cleaned_data['book_name']
             book_description = form.cleaned_data['book_description']
             book_status = form.cleaned_data['book_status']
-            book = Books(book_name=book_name,book_description=book_description, author_id=author_id, book_status=book_status)
+            book_img = form.cleaned_data['book_img']
+            book = Books(book_name=book_name, book_description=book_description, author_id=author_id,
+                         book_status=book_status, book_img=book_img)
+            book.save()
             book.genres.set(form.cleaned_data['genres'])
             book.save()
             return redirect('../lk')
@@ -131,10 +146,9 @@ def createbook(request):
     books = Books.objects.all()
     genres = Genres.objects.all()
     status = Status.objects.all()
-    data={
+    data = {
         'books': books,
         'genres': genres,
         'status': status,
-        'form': form,
     }
-    return render(request, 'bookapp/createbook.html',data)
+    return render(request, 'bookapp/createbook.html', data)

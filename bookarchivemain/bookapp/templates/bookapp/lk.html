@@ -3,6 +3,12 @@
 
 {% block title %} Личный кабинет {{user.name}} {% endblock title %}
 
+        {% block buttons%}
+            <div class="buttons">
+                <a href="{% url 'createbook' %}">Добавить книгу</a>
+            </div>
+        {% endblock buttons %}
+
 {% block lkbook %}
     <div class="lkbook">
         {% block lkinfo %}
