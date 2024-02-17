@@ -1,4 +1,4 @@
-{% extends 'bookapp/books.html' %}
+{% extends 'bookapp/baseshablon.html' %}
 {%load static%}
 
 {% block title%}Авторизация{% endblock title %}
@@ -17,3 +17,12 @@
 </main>
 
 {% endblock regwindow %}
+{% block footer %}
+  <div class="footer">
+      <div class="footer_info">
+          <h2>Правила использования</h2>
+      </div>
+      <a class="footer_icons" href="https://vk.com/pashtetkostyan"><img src="/static/img/vk_icon2.svg" alt=""></a>
+      <h2>2024</h2>
+  </div>
+  {% endblock footer %}
