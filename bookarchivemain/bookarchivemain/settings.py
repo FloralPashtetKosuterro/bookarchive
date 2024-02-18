@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-@u0z1f2o_1*xxw%m$e-yg58*djt%g!(nmt+dlx#czef^o=*ile
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [217.18.62.244]
 
 
 # Application definition
@@ -78,11 +78,14 @@ WSGI_APPLICATION = 'bookarchivemain.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-        'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://writer:ujCvRJOoVVQHduyQCs5W3YqKUHgo8Wuf@dpg-cn892af109ks739n97d0-a.frankfurt-postgres.render.com/bookdb_woaj',
-        conn_max_age=600
-    )
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bookdb',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
