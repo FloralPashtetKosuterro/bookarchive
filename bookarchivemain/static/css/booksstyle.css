@@ -9,7 +9,7 @@ label{
 }
 @font-face {
 	font-family: 'myfont';
-	src: url(../fonts/Inter-Light.otf);
+	src: url(../fonts/InterV.ttf);
 }
 
 body{
@@ -144,35 +144,42 @@ body{
     flex-direction: column;
 }
 
-.book_description{
-    padding:2%;
-}
+
 
 .bookimg{
+    margin-top:1%;
     width: 80%;
     height:100%;
     display:flex;
     margin-left:2%;
+    background:#F2F2F2;
+    -webkit-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
+    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
+    align-self: center;
 }
 
 .bookimg h3{
     z-index:1;
     padding:2.5%;
-    color:#E4CBBA;
+    color:#000000;
     font-family:myfont;
 }
 
 .bookimg p{
     z-index:1;
     padding:2.5%;
-    color:#E4CBBA;
+    color:#000000;
     font-family:myfont;
 }
 
-.bookimg img{
-   width:20%;
+.bookimg_img{
+   width: 20%;
+   padding: 2%;
 }
-
+.author{
+    display: flex;
+    align-items: center;
+}
 .bookinfo{
     width:75%;
     display:flex;
@@ -180,15 +187,21 @@ body{
     padding:2%;
 }
 
-.bookinfo hr{
-    /* установим высоту контейнера */
-  height: 5px;
-  /* границы уберем */
-  border: 0;
-  /* установим нужный цвет, например, красный */
-  background-color: #E4CBBA;
+.currentbookblock{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background:#ECD9C2;
+}
+.currentbookname{
+    padding-left: 11%;
+    padding-top: 3%;
 }
 
+.currentsvgicons{
+    width: 15%;
+    padding: 2%;
+}
 .parts{
     margin-top:5%;
     display: flex;
@@ -196,9 +209,10 @@ body{
     background:#ECD9C2;
     width:50%;
     margin-bottom: 5%;
+    align-self: center;
 }
 
-.parts p{
+.parts h3{
     padding:2%;
     color:#000000;
     font-family:myfont;
@@ -311,14 +325,15 @@ form p{
 }
 
 .genres a{
+    display: flex;
     background: #EBD9C1;
     text-decoration: none;
-    color:black;
+    color: black;
     padding: 1%;
     margin: 1%;
     border-radius: 10px;
     font-family: myfont;
-    font-size: calc(15px + 4 * (100vw - 320px) / 880);
+    align-items: center;
 }
 
 .svgicons{
@@ -382,7 +397,7 @@ form p{
 
 /* АДАПТАЦИЯ */
 
-@media (min-width: 320px) and (max-width: 1199.98px){
+@media (min-width: 812px) and (max-width: 1559px) {
 .books_block {
     width: 95%;
     height: 100%;
@@ -415,26 +430,4 @@ form p{
     margin-top: 20%;
     margin-left: 5%;
 }
-.svgicons {
-    margin-top: 2%;
-    width: 45%;
-}
-
-.book_description{
-    padding:4%;
-    font-size: calc(25px + 4 * (100vw - 320px) / 880) !important;	
-}
-
-
-.genres a{
-    background: #EBD9C1;
-    text-decoration: none;
-    color:black;
-    padding: 2%;
-    margin: 1%;
-    border-radius: 10px;
-    font-family: myfont;
-    font-size: calc(25px + 4 * (100vw - 320px) / 880);
-}
-
 }

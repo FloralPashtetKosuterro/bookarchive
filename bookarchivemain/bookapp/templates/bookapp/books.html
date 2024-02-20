@@ -46,17 +46,18 @@
                     <a href="{% url 'genres' genre.id %}">{{genre.genre_name}}</a>
                   {% endfor %}
               </div>
-              <h3 class="book_description">{{show.book_description}}</h3>
+              <h3>{{show.book_description}}</h3>
           </div>
       </div>
       {% endfor %}
     </div>
+      {% block currentbookblock %}
       {% block bookimg %}
         <img src="" alt="">
       {% endblock bookimg %}
       {% block textedit %}
       {% endblock textedit %}
-
+      {% endblock currentbookblock %}
 
 
   </div>

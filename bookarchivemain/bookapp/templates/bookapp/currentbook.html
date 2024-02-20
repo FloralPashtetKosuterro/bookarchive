@@ -1,24 +1,46 @@
 {% extends 'bookapp/books.html' %}
 {%load static%}
 {% block title %} {% for name in books %} {{name.book_name}} {% endfor %}{% endblock title %}
-{% block bookimg %}
-    <div class="bookimg">
-    {% for i in books %}
-    <img src="/static/img/{{i.book_img}}" alt="">
-        <div class="bookinfo">
-            <h3>{{i.book_name}}</h3>
-            <hr>
-            <h3>Описание:</h3>
-            <p>{{i.book_description}}</p>
-        </div>
-    {% endfor %}
-    </div>
-    {% block parts %}
-        <div class="parts">
-            <p>Содержание</p>
-            {% for part in parts%}
-                <a href="{% url 'read' part.pk %}">{{part.part_name}}</a>
+{% block currentbookblock %}
+    <div class="currentbookblock">
+        <div class="currentbookname">
+            {% for i in books %}
+                <h3>{{i.book_name}}</h3>
             {% endfor %}
         </div>
-    {% endblock parts%}
-{% endblock bookimg %}
+
+    {% block bookimg %}
+        <div class="bookimg">
+        {% for i in books %}
+            <div class="bookinfo">
+                {% if i.book_status_id == 1 %}
+                <img class="currentsvgicons" src="/static/img/Заброшено.svg" alt="">
+              {% elif i.book_status_id == 2 %}
+                <img class="currentsvgicons" src="/static/img/В процессе.svg" alt="">
+              {% elif i.book_status_id == 3 %}
+                <img class="currentsvgicons" src="/static/img/Завершено.svg" alt="">
+              {% endif %}
+                <div class="author"><h3>Автор:</h3><p>{{i.author}}</p></div>
+                <div class="genres">
+                    <h3>Жанры:</h3>
+                {% for genre in i.genres.all %}
+                    <a href="{% url 'genres' genre.id %}">{{genre.genre_name}}</a>
+                  {% endfor %}
+                </div>
+                <h3>Описание:</h3>
+                <p>{{i.book_description}}</p>
+            </div>
+            <img class="bookimg_img" src="/static/img/{{i.book_img}}" alt="">
+        {% endfor %}
+        </div>
+        {% endblock bookimg %}
+        {% block parts %}
+            <div class="parts">
+                <h3>Содержание</h3>
+                {% for part in parts%}
+                    <a href="{% url 'read' part.pk %}">{{part.part_name}}</a>
+                {% endfor %}
+            </div>
+        {% endblock parts%}
+    </div>
+{% endblock currentbookblock %}
