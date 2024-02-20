@@ -9,7 +9,7 @@ label{
 }
 @font-face {
 	font-family: 'myfont';
-	src: url(../fonts/InterV.ttf);
+	src: url(../fonts/Inter-Light.otf);
 }
 
 body{
@@ -144,7 +144,9 @@ body{
     flex-direction: column;
 }
 
-
+.book_description{
+    padding:2%;
+}
 
 .bookimg{
     width: 80%;
@@ -316,6 +318,7 @@ form p{
     margin: 1%;
     border-radius: 10px;
     font-family: myfont;
+    font-size: calc(15px + 4 * (100vw - 320px) / 880);
 }
 
 .svgicons{
@@ -379,7 +382,7 @@ form p{
 
 /* АДАПТАЦИЯ */
 
-@media (min-width: 812px) and (max-width: 1559px) {
+@media (min-width: 320px) and (max-width: 1199.98px){
 .books_block {
     width: 95%;
     height: 100%;
@@ -412,4 +415,26 @@ form p{
     margin-top: 20%;
     margin-left: 5%;
 }
+.svgicons {
+    margin-top: 2%;
+    width: 45%;
+}
+
+.book_description{
+    padding:4%;
+    font-size: calc(25px + 4 * (100vw - 320px) / 880) !important;	
+}
+
+
+.genres a{
+    background: #EBD9C1;
+    text-decoration: none;
+    color:black;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 10px;
+    font-family: myfont;
+    font-size: calc(25px + 4 * (100vw - 320px) / 880);
+}
+
 }
