@@ -1,0 +1,17 @@
+[0;1;31m●[0m gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; disabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Tue 2024-02-20 08:47:26 MSK; 6min ago
+TriggeredBy: [0;1;32m●[0m gunicorn.socket
+    Process: 48926 ExecStart=/usr/local/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock bookarchivemain.wsgi:application [0;1;31m(code=exited, status=3)[0m
+   Main PID: 48926 (code=exited, status=3)
+
+Feb 20 08:47:25 2558199-zi19450.twc1.net gunicorn[48940]:               ^
+Feb 20 08:47:25 2558199-zi19450.twc1.net gunicorn[48940]: SyntaxError: invalid syntax
+Feb 20 08:47:25 2558199-zi19450.twc1.net gunicorn[48940]: [2024-02-20 08:47:25 +0300] [48940] [INFO] Worker exiting (pid: 48940)
+Feb 20 08:47:26 2558199-zi19450.twc1.net gunicorn[48926]: [2024-02-20 08:47:26 +0300] [48926] [ERROR] Worker (pid:48938) exited with code 3
+Feb 20 08:47:26 2558199-zi19450.twc1.net gunicorn[48926]: [2024-02-20 08:47:26 +0300] [48926] [ERROR] Worker (pid:48939) was sent SIGTERM!
+Feb 20 08:47:26 2558199-zi19450.twc1.net gunicorn[48926]: [2024-02-20 08:47:26 +0300] [48926] [ERROR] Worker (pid:48940) was sent SIGTERM!
+Feb 20 08:47:26 2558199-zi19450.twc1.net gunicorn[48926]: [2024-02-20 08:47:26 +0300] [48926] [ERROR] Shutting down: Master
+Feb 20 08:47:26 2558199-zi19450.twc1.net gunicorn[48926]: [2024-02-20 08:47:26 +0300] [48926] [ERROR] Reason: Worker failed to boot.
+Feb 20 08:47:26 2558199-zi19450.twc1.net systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Main process exited, code=exited, status=3/NOTIMPLEMENTED[0m
+Feb 20 08:47:26 2558199-zi19450.twc1.net systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mgunicorn.service: Failed with result 'exit-code'.[0m

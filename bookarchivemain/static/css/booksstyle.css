@@ -1,0 +1,404 @@
+/* Константы */
+*{
+	margin: 0;
+	padding: 0;
+}
+label{
+    color:#E4CBBA;
+    font-family:myfont;
+}
+@font-face {
+	font-family: 'myfont';
+	src: url(../fonts/myfont.ttf);
+}
+
+body{
+    width:100%;
+	background: #2B201F;
+}
+
+/* Конец Констант */
+/* Начало Навигации */
+.nav{
+    align-items:center;
+    display:flex;
+	height: 150px;
+	width: 100%;
+	position:fixed;
+	background: #51392E;
+	z-index:9999;
+}
+
+.auth{
+    align-items:center;
+    display:flex;
+    width: 80%;
+    height:100%;
+    justify-content: flex-end;
+}
+
+.auth p {
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+.nav a{
+    margin:2%;
+    text-decoration:none;
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+.logo{
+    margin-left:4%;
+}
+
+.footer{
+    display:flex;
+    width:100%;
+    height:15%;
+    background: #51392E;
+    margin-top: 2%;
+    flex-direction:column;
+    align-items:center;
+}
+
+.footer_info{
+    margin:2%;
+    width:50%;
+    height:15%;
+    display:flex;
+    justify-content: center;
+}
+
+.footer_info h2{
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+
+.footer_icons{
+    width:5%;
+    margin-bottom:2%;
+}
+.footer h2{
+    color:#E4CBBA;
+    font-family:myfont;
+    margin-bottom: 2%;
+}
+
+/* Конец Навигации */
+
+.nav2{
+    height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	flex-direction: column;
+}
+
+.books_block{
+    width:90%;
+    height:100%;
+    margin-top:10%;
+    background:#ECD9C2;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.currentbook{
+    margin:1.5%;
+    width: 65%;
+    height:100%;
+    display:flex;
+    background:#F2F2F2;
+    -webkit-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
+    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
+}
+
+.currentbook h3{
+    z-index:1;
+    padding-top: 5.5%;
+    color:black;
+    font-family:myfont;
+    font-size:calc(16px + 4 * (100vw - 320px) / 880);
+}
+
+.bookcover{
+    margin:2%;
+}
+
+.bookcover img{
+    width: 100%;
+    height:100%;
+    -webkit-box-shadow: inset 0px 0px 4px 8px rgba(0,0,0,0.41);
+    box-shadow: inset 0px 0px 4px 8px rgba(0,0,0,0.41);
+}
+
+
+.bookname{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.bookimg{
+    width: 80%;
+    height:100%;
+    display:flex;
+    margin-left:2%;
+}
+
+.bookimg h3{
+    z-index:1;
+    padding:2.5%;
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+.bookimg p{
+    z-index:1;
+    padding:2.5%;
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+.bookimg img{
+   width:20%;
+}
+
+.bookinfo{
+    width:75%;
+    display:flex;
+    flex-direction: column;
+    padding:2%;
+}
+
+.bookinfo hr{
+    /* установим высоту контейнера */
+  height: 5px;
+  /* границы уберем */
+  border: 0;
+  /* установим нужный цвет, например, красный */
+  background-color: #E4CBBA;
+}
+
+.parts{
+    margin-top:5%;
+    display: flex;
+    flex-direction: column;
+    background:#ECD9C2;
+    width:50%;
+    margin-bottom: 5%;
+}
+
+.parts p{
+    padding:2%;
+    color:#000000;
+    font-family:myfont;
+    align-self:center;
+}
+
+.parts a{
+    color:#000000;
+    font-family:myfont;
+    padding:2.5%;
+    background:white;
+    border: solid black 1px;
+}
+
+.partcontainer{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    background:#ECD9C2;
+}
+
+.textcontainer{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    background:#F2F2F2;
+}
+
+.textcontainer p{
+    padding:4%;
+}
+
+.text{
+    padding:2%;
+}
+
+.part_name{
+    align-self:center;
+}
+
+.textedit{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    height:100%;
+}
+
+.partblock{
+    margin-top:10%;
+}
+
+.partblock form{
+    display:flex;
+    flex-direction:column;
+
+}
+
+.regwindow{
+    display:flex;
+    width:100%;
+    height:100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.regwindow form{
+    margin-top:50%;
+    align-items:center;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.regwindow p{
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+form p{
+    color:#E4CBBA;
+    font-family:myfont;
+}
+
+.regwindow button{
+    margin-top:2%;
+    padding:5%;
+    text-decoration:none;
+    color:#E4CBBA;
+    font-family:myfont;
+    background:#2F1A1A;
+    border-radius:10%;
+}
+
+.currentform{
+    width:20%;
+    height:5%;
+}
+
+
+
+.bookdescription{
+    display: flex;
+    flex-direction:column;
+    width:30%;
+}
+
+.genres{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.genres a{
+    background: #EBD9C1;
+    text-decoration: none;
+    color:black;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+    font-family: myfont;
+}
+
+.svgicons{
+    margin-top:2%;
+    width: 20%;
+}
+
+/* Начало личного кабинета */
+.lkbook{
+    display:flex;
+    width:100%;
+    height:100%;
+}
+
+.lkinfo{
+    display:flex;
+    width:100%;
+    margin-top: 5%;
+    flex-wrap: wrap;
+}
+
+.lkinfo p{
+    padding:5%;
+    color:#E4CBBA;
+    font-family:myfont;
+}
+.lkbooksinfo{
+    margin-left: 5%;
+    display: flex;
+    width:60%;
+}
+
+.lkbooksinfo img{
+    width:40%;
+    margin-bottom:4%;
+}
+
+.lkbooksinfo a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    height:5%;
+    color:#E4CBBA;
+    font-family:myfont;
+    background: #2F1A1A;
+}
+
+.buttons{
+    margin-top: 15%;
+    margin-left: 5%;
+}
+
+.buttons a{
+    padding:2%;
+    color:#E4CBBA;
+    font-family:myfont;
+    text-decoration:none;
+}
+/* Конец личного кабинета */
+
+/* АДАПТАЦИЯ */
+
+@media (min-width: 812px) and (max-width: 1559px) {
+.books_block {
+    width: 95%;
+    height: 100%;
+    margin-top: 17%;
+    background: #ECD9C2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.currentbook {
+    margin: 1.5%;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    background: #F2F2F2;
+    -webkit-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
+    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
+
+}
+
+}

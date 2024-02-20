@@ -1,0 +1,163 @@
+/* Константы */
+*{
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family: 'myfont'; 
+	src: url(../fonts/myfont.ttf); 
+}
+ul{
+	list-style-type: none;
+}
+
+body{
+	background: #FFC19A;
+}
+hr{
+    width: 90%;
+}
+/* Конец констант */
+
+/* Навигация */
+.logo{
+	cursor: pointer;
+}
+
+.nav{
+    position: fixed;
+	display: flex;
+	height:150px;
+	width: 100%;
+	background: #FF7340;	
+}
+
+.nav_button{
+    display:flex;
+    align-items: center;
+    margin-left:2.5%;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.nav_button li:hover{
+	background: #BF5730;
+	transition: 0.5s;
+}
+.nav_button p{
+    text-align: center;
+	font-size: 25px;
+	color: white;
+	font-weight: 400;
+	font-family:'myfont';
+}
+
+.nav_button ul{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav_button a{
+    text-decoration:none;
+}
+
+.nav_button li{
+    display: flex;
+    align-items: center;
+    height:100%;
+    padding-left:2%;
+    padding-right:2%;
+}
+
+.list{
+    cursor:pointer;
+}
+
+.profile{
+    height:100%;
+    width: 42%;
+    background:#e55d3d;
+    display:flex;
+	justify-content: flex-end
+}
+.profile_name{
+    display:flex;
+    align-items: center;
+}
+.profile_name p{
+    font-size: 25px;
+	color: white;
+	font-family:'myfont';
+	font-weight: 400;
+	margin-right:10%;
+}
+
+.profile_img img{
+    width:100%;
+    height:100%;
+}
+/* Конец навигации */
+
+/* Начало контейнера */
+.page_zagolovok{
+    margin-top: 8%;
+}
+.container{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.container h1{
+	text-align: center;
+	padding: 2.5%;
+	font-family:'myfont';
+}
+
+.newblock{
+	margin: 0 auto;
+	width: 50%;
+	height: 100%;
+	background: white;
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.currentnew{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.currentnew img{
+    width:50%;
+}
+
+.currentnew h1{
+	width: 25%;
+	height: 25%;
+	text-align: center;
+	font-family: 'myfont';
+}
+
+.currentnew p{
+    font-family: 'myfont';
+    padding:2%;
+}
+
+/* Конец контейнера */
+
+/* Ивентовые элементы */
+.event_cont{
+    width:100%;
+    display:flex;
+    align-items:center;
+}
+
+.event_block{
+    margin-top:8%;
+    width:100%;
+}

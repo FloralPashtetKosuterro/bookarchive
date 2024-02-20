@@ -21,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@u0z1f2o_1*xxw%m$e-yg58*djt%g!(nmt+dlx#czef^o=*ile'
+SECRET_KEY='django-insecure-@u0z1f2o_1*xxw%m$e-yg58*djt%g!(nmt+dlx#czef^o=*ile'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['young-writer.tw1.su','217.18.62.244','localhost']
+ALLOWED_HOSTS = ['young-writer.tw1.su', '217.18.62.244']
+
 
 
 # Application definition
@@ -77,13 +78,13 @@ WSGI_APPLICATION = 'bookarchivemain.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bookdb',
         'USER': 'postgres',
         'PASSWORD': '123',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -122,7 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL='static/'
+STATIC_ROOT='static/' 
 
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "bookapp/static"),
