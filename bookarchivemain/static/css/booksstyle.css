@@ -9,7 +9,7 @@ label{
 }
 @font-face {
 	font-family: 'myfont';
-	src: url(../fonts/myfont.ttf);
+	src: url(../fonts/InterV.ttf);
 }
 
 body{
@@ -25,7 +25,7 @@ body{
 	height: 150px;
 	width: 100%;
 	position:fixed;
-	background: #51392E;
+	background: #4C3125;
 	z-index:9999;
 }
 
@@ -57,7 +57,7 @@ body{
     display:flex;
     width:100%;
     height:15%;
-    background: #51392E;
+    background: #4C3125;
     margin-top: 2%;
     flex-direction:column;
     align-items:center;
