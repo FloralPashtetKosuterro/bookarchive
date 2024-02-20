@@ -35,5 +35,6 @@ urlpatterns = [
     path('lk/books/<int:id>/parts/', create_glava, name='createglava'),
     path('genres/<int:id>', genres, name='genres'),
     path('createbook/', createbook, name='createbook'),
-    path('read/<int:parts_id>',read_part,name='read')
+    path('read/<int:parts_id>',read_part,name='read'),
+    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

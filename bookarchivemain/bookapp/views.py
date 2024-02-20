@@ -64,7 +64,7 @@ def create_glava(request, id):
             part_content = form.cleaned_data['part_content']
             book = Parts(part_name=part_name, part_content=part_content, book_id=book_id)
             book.save()
-            return redirect('../books')
+            return redirect('lk')
         else:
             form = PartsForm()
     parts = Parts.objects.all()
@@ -104,7 +104,7 @@ class LoginUser(LoginView):
 
 def logout_view(request):
     logout(request)
-    return redirect('/books')
+    return redirect('/')
 
 
 def lk(request):

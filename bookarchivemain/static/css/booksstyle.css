@@ -401,4 +401,15 @@ form p{
 
 }
 
+.currentbook h3{
+    z-index:1;
+    padding-top: 5.5%;
+    color:black;
+    font-family:myfont;
+    font-size:calc(35px + 4 * (100vw - 320px) / 880);
+}
+.buttons {
+    margin-top: 20%;
+    margin-left: 5%;
+}
 }

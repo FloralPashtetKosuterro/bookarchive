@@ -379,8 +379,9 @@ form p{
 
 /* АДАПТАЦИЯ */
 
-@media (min-width: 812px) and (max-width: 1559px) {
-.books_block {
+@media (min-width: 472px) and (max-width: 1559px) {
+
+.
     width: 95%;
     height: 100%;
     margin-top: 17%;
@@ -400,5 +401,14 @@ form p{
     box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.77);
 
 }
+
+.currentbook h3{
+    z-index:1;
+    padding-top: 5.5%;
+    color:black;
+    font-family:myfont;
+    font-size:calc(18px + 4 * (100vw - 320px) / 880);
+}
+
 
 }
