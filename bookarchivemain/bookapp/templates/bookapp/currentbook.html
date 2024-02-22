@@ -20,9 +20,9 @@
               {% elif i.book_status_id == 3 %}
                 <img class="currentsvgicons" src="/static/img/Завершено.svg" alt="">
               {% endif %}
-                <div class="author"><h3>Автор:</h3><p>{{i.author}}</p></div>
-                <div class="genres">
-                    <h3>Жанры:</h3>
+                <div class="author"><h3>Автор:</h3><p class="author_block">{{i.author}}</p></div>
+                <div class="currentgenres">
+                    <h3 class="genres_block">Жанры:</h3>
                 {% for genre in i.genres.all %}
                     <a href="{% url 'genres' genre.id %}">{{genre.genre_name}}</a>
                   {% endfor %}
@@ -30,16 +30,29 @@
                 <h3>Описание:</h3>
                 <p>{{i.book_description}}</p>
             </div>
-            <img class="bookimg_img" src="/static/img/{{i.book_img}}" alt="">
+	{% block book_img %}
+	    <div class="book_img">
+           	 <img src="/static/img/{{i.book_img}}" alt="">
+	    </div>
+	{% endblock book_img %}
         {% endfor %}
         </div>
         {% endblock bookimg %}
         {% block parts %}
             <div class="parts">
-                <h3>Содержание</h3>
+		<h3>Содержание</h3>
+		{% block parts_block %}
+		<div class="parts_block">
                 {% for part in parts%}
+		    <div class="part_a_div">
+		    <div class="part_a_mark">
+		    </div>
                     <a href="{% url 'read' part.pk %}">{{part.part_name}}</a>
+	            </div>
                 {% endfor %}
+		</div>
+		{% endblock parts_block %}
+
             </div>
         {% endblock parts%}
     </div>

@@ -30,9 +30,9 @@
           <div class="bookcover">
               <a href="{% url 'insidebook' show.pk %}"><img src="/static/img/{{ show.book_img }}" alt=""></a>
           </div>
-          <div class="bookname">
-              <h3>{{show.book_name}}</h3>
-              <h3>{{show.author}}</h3>
+          <div class="bookinformation">
+              <h3 class="name_block">{{show.book_name}}</h3>
+              <h3 class="author_block">{{show.author}}</h3>
               {% if show.book_status_id == 1 %}
                 <img class="svgicons" src="/static/img/Заброшено.svg" alt="">
               {% elif show.book_status_id == 2 %}
@@ -40,24 +40,31 @@
               {% elif show.book_status_id == 3 %}
                 <img class="svgicons" src="/static/img/Завершено.svg" alt="">
               {% endif %}
-              <h3>Жанры:</h3>
               <div class="genres">
+                  <h3 class="genres_block">Жанры:</h3>
                   {% for genre in show.genres.all %}
                     <a href="{% url 'genres' genre.id %}">{{genre.genre_name}}</a>
                   {% endfor %}
               </div>
-              <h3>{{show.book_description}}</h3>
+              <p class="book_description">{{show.book_description}}</p>
           </div>
       </div>
       {% endfor %}
     </div>
       {% block currentbookblock %}
-      {% block bookimg %}
-        <img src="" alt="">
-      {% endblock bookimg %}
+	 <div class="currentbookblock">
+     	 {% block bookimg %}
+		{% block book_img %}
+       		 <img src="" alt="">
+		{% endblock book_img %}
+     	 {% endblock bookimg %}
+     	 {% block parts %}
+     	 {% endblock parts%}
+	</div>
+      {% endblock currentbookblock %}
       {% block textedit %}
       {% endblock textedit %}
-      {% endblock currentbookblock %}
+
 
 
   </div>

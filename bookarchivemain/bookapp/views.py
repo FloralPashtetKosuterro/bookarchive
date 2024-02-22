@@ -140,7 +140,7 @@ def createbook(request):
             book.save()
             book.genres.set(form.cleaned_data['genres'])
             book.save()
-            return redirect('../lk')
+            return redirect('lk')
         else:
             form = BooksForm()
     books = Books.objects.all()
