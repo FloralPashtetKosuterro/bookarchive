@@ -9,16 +9,16 @@ import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
-import { FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
+import { FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import { Indent } from '@ckeditor/ckeditor5-indent';
-import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
-import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+import { Table } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 declare class Editor extends ClassicEditor {
-    static builtinPlugins: (typeof Alignment | typeof Autoformat | typeof BlockQuote | typeof Bold | typeof Essentials | typeof FontFamily | typeof FontSize | typeof Heading | typeof Indent | typeof Italic | typeof List | typeof Paragraph | typeof Table | typeof TableToolbar | typeof TextTransformation | typeof Undo)[];
+    static builtinPlugins: (typeof Alignment | typeof Autoformat | typeof BlockQuote | typeof Bold | typeof Essentials | typeof FontColor | typeof FontFamily | typeof FontSize | typeof Heading | typeof Indent | typeof Italic | typeof Paragraph | typeof PasteFromOffice | typeof Table | typeof TextTransformation | typeof Undo)[];
     static defaultConfig: EditorConfig;
 }
 export default Editor;

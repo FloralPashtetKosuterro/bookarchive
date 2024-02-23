@@ -11,12 +11,12 @@ import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
-import { FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
+import { FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import { Indent } from '@ckeditor/ckeditor5-indent';
-import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
-import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+import { Table } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 
@@ -30,15 +30,15 @@ class Editor extends ClassicEditor {
 		BlockQuote,
 		Bold,
 		Essentials,
+		FontColor,
 		FontFamily,
 		FontSize,
 		Heading,
 		Indent,
 		Italic,
-		List,
 		Paragraph,
+		PasteFromOffice,
 		Table,
-		TableToolbar,
 		TextTransformation,
 		Undo
 	];
@@ -50,29 +50,21 @@ class Editor extends ClassicEditor {
 				'|',
 				'bold',
 				'italic',
-				'bulletedList',
-				'numberedList',
 				'|',
 				'outdent',
 				'indent',
 				'|',
 				'blockQuote',
-				'insertTable',
 				'undo',
 				'redo',
 				'fontFamily',
 				'fontSize',
-				'alignment'
+				'fontColor',
+				'alignment',
+				'insertTable'
 			]
 		},
-		language: 'ru',
-		table: {
-			contentToolbar: [
-				'tableColumn',
-				'tableRow',
-				'mergeTableCells'
-			]
-		}
+		language: 'ru'
 	};
 }
 

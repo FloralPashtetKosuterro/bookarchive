@@ -17,8 +17,8 @@
     "@ckeditor/ckeditor5-font": "41.1.0",
     "@ckeditor/ckeditor5-heading": "41.1.0",
     "@ckeditor/ckeditor5-indent": "41.1.0",
-    "@ckeditor/ckeditor5-list": "41.1.0",
     "@ckeditor/ckeditor5-paragraph": "41.1.0",
+    "@ckeditor/ckeditor5-paste-from-office": "41.1.0",
     "@ckeditor/ckeditor5-table": "41.1.0",
     "@ckeditor/ckeditor5-typing": "41.1.0",
     "@ckeditor/ckeditor5-undo": "41.1.0"
