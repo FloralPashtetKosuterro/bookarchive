@@ -20,15 +20,14 @@
               {% elif i.book_status_id == 3 %}
                 <img class="currentsvgicons" src="/static/img/Завершено.svg" alt="">
               {% endif %}
-                <div class="author"><h3>Автор:</h3><p class="author_block">{{i.author}}</p></div>
+                <div class="author"><h3>Автор: </h3><p class="author_block">{{i.author}}</p></div>
                 <div class="currentgenres">
                     <h3 class="genres_block">Жанры:</h3>
                 {% for genre in i.genres.all %}
                     <a href="{% url 'genres' genre.id %}">{{genre.genre_name}}</a>
                   {% endfor %}
                 </div>
-                <h3>Описание:</h3>
-                <p>{{i.book_description}}</p>
+                <p class="book_description">{{i.book_description}}</p>
             </div>
 	{% block book_img %}
 	    <div class="book_img">

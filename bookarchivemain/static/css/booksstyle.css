@@ -9,14 +9,8 @@ label{
 }
 @font-face {
 	font-family: 'myfont';
-	src: url(../fonts/Inter-Bold.otf);
-        font-weight:400;
-}
-
-@font-face {
-        font-family: 'myfont';
-        src: url(../fonts/Inter-Bold.otf);
-        font-weight:700;
+	src: url(../fonts/Inter-VariableFont_slnt,wght.ttf);
+        
 }
 
 
@@ -151,6 +145,11 @@ body{
     font-size: calc(26px + 4 * (100vw - 320px) / 880);
 }
 
+.name_block a{
+    text-decoration: none;
+    color: black;
+}
+
 .author_block{
     font-size: calc(14px + 4 * (100vw - 320px) / 880);
     font-family:myfont;
@@ -177,11 +176,10 @@ body{
     align-self: center;
 }
 
-.bookimg h3{
-    z-index:1;
-    padding:2.5%;
-    color:#000000;
+.author h3{
     font-family:myfont;
+    font-size: calc(14px + 4 * (100vw - 320px) / 880);
+    margin-right:2%;
 }
 
 .book_img{
@@ -214,7 +212,7 @@ body{
     background:#ECD9C2;
 }
 .currentbookname{
-    padding-left: 11%;
+    padding-left: 10%;
     padding-top: 3%;
 }
 
@@ -227,7 +225,6 @@ body{
 
 .currentsvgicons{
     width: 15%;
-    padding: 2%;
 }
 
 .currentgenres{
@@ -251,6 +248,11 @@ body{
     align-items: center;
     font-size: calc(10px + 4 * (100vw - 320px) / 880);
 
+}
+
+.currentnamebook{
+    display: flex;
+    align-items: center;
 }
 
 .parts{
@@ -313,18 +315,19 @@ body{
     width:100%;
     display: flex;
     justify-content: center;
-    background:#ECD9C2;
 }
 
 .textcontainer{
     display:flex;
     flex-direction:column;
-    width:50%;
-    background:#F2F2F2;
+    width:80%;
+    background:#ECD9C2;
 }
 
-.textcontainer p{
-    padding:4%;
+.textcontainer h3{
+    font-size: calc(20px + 4 * (100vw - 320px) / 880);
+    padding:2%;
+    font-family:myfont;
 }
 
 .text{
@@ -395,7 +398,7 @@ form p{
 
 .book_description{
     font-family:myfont;
-
+    font-size: calc(14px + 4 * (100vw - 320px) / 880) !important;
 }
 
 .bookdescription{
@@ -410,6 +413,45 @@ form p{
     margin-bottom: 6%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.read_info {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    background: rgb(249, 235, 219);
+    width: 95%;
+    align-self: center;
+    margin-top: 2.5%;
+    flex-direction: column;
+}
+
+.currentnamebook h3{
+    font-family:myfont;
+    padding-top:1% !important;
+    padding-bottom:1% !important;
+    padding-left:4% !important;
+    font-size: calc(20px + 4 * (100vw - 320px) / 880) !important;
+}
+
+
+.currentauthorbook {
+    display: flex;
+    align-items: center;
+}
+
+.currentauthorbook h3{
+    font-family:myfont;
+    padding-top:1% !important;
+    padding-bottom:1% !important;
+    padding-left:4% !important;
+    font-size: calc(20px + 4 * (100vw - 320px) / 880) !important;
+
+}
+
+.read_info p{
+    font-size: calc(20px + 4 * (100vw - 320px) / 880);
+    font-family:myfont;
 }
 
 .genres a{
@@ -476,7 +518,9 @@ form p{
     margin-top: 15%;
     margin-left: 5%;
 }
-
+.text{
+    font-size: calc(20px + 4 * (100vw - 320px) / 880);
+}
 .buttons a{
     padding:2%;
     color:#E4CBBA;
@@ -488,6 +532,33 @@ form p{
 /* АДАПТАЦИЯ */
 
 @media (min-width: 320px) and (max-width: 1199.98px){
+.text {
+    font-size: calc(35px + 4 * (100vw - 320px) / 880);
+}
+
+.textcontainer h3 {
+    font-size: calc(35px + 4 * (100vw - 320px) / 880);
+    padding: 2%;
+    font-family: myfont;
+}
+.currentnamebook h3 {
+    font-family: myfont;
+    padding-top: 1% !important;
+    padding-bottom: 1% !important;
+    padding-left: 4% !important;
+    font-size: calc(35px + 4 * (100vw - 320px) / 880) !important;
+}
+.read_info p {
+    font-size: calc(35px + 4 * (100vw - 320px) / 880);
+    font-family: myfont;
+}
+.currentauthorbook h3 {
+    font-family: myfont;
+    padding-top: 1% !important;
+    padding-bottom: 1% !important;
+    padding-left: 4% !important;
+    font-size: calc(35px + 4 * (100vw - 320px) / 880) !important;
+}
 .books_block {
     width: 95%;
     height: 100%;
@@ -543,6 +614,73 @@ form p{
     font-family: myfont;
     align-items: center;
     font-size: calc(25px + 4 * (100vw - 320px) / 880);
+}
+
+.currentbookblock {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    background: #ECD9C2;
+}
+
+.bookimg {
+    margin-top: 1%;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    background: #F2F2F2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    background: rgb(242, 242, 242);
+    align-self: center;
+}
+
+.currentsvgicons {
+    width: 30%;
+}
+
+.author_block {
+    font-size: calc(25px + 4 * (100vw - 320px) / 880);
+    font-family: myfont;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.author h3 {
+    font-family: myfont;
+    font-size: calc(25px + 4 * (100vw - 320px) / 880);
+    margin-right: 2%;
+}
+
+.genres_block {
+    font-size: calc(25px + 4 * (100vw - 320px) / 880);
+    font-family: myfont;
+}
+
+.currentgenres a {
+    display: flex;
+    background: #EBD9C1;
+    text-decoration: none;
+    color: black;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    margin: 1%;
+    border-radius: 10px;
+    font-family: myfont;
+    align-items: center;
+    font-size: calc(21px + 4 * (100vw - 320px) / 880);
+}
+.currentbookname {
+    padding-left: 2.5%;
+    padding-top: 3%;
+}
+.textcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    background: #ECD9C2;
 }
 
 }

@@ -48,9 +48,14 @@ def booksinside(request, book_id):
 
 
 def read_part(request, parts_id):
+    books= Books.objects.filter()
+    test_parts = Parts.objects.get(id=parts_id)
+    author = test_parts.book.author
     parts= Parts.objects.filter(id=parts_id)
     data = {
+        'author':author,
         'parts':parts,
+        'books':books,
     }
     return render(request, 'bookapp/read.html', data)
 

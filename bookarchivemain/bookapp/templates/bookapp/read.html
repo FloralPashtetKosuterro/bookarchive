@@ -5,13 +5,18 @@
 
 {% block partcontainer %}
     <div class="partcontainer">
-         {% block textcontainer %}
-            <div class="textcontainer">
+	{% block textcontainer %}
+   		 <div class="textcontainer">
+                
                 {% for i in parts %}
-                     <p class="part_name">{{i.part_name}}</p>
+		     <div class="read_info"><div class="currentnamebook"><h3>Вы читаете:</h3><p>{{i.book}}</p></div>
+			<div class="currentauthorbook"><h3>Автор:</h3><p>{{author.username}}</p></div>
+			</div>
+                     <h3 class="part_name">{{i.part_name}}</h3>
                     <div class="text">{{i.part_content|safe}}</div>
                 {% endfor %}
-            </div>
-        {% endblock textcontainer %}
+		    </div>
+	{% endblock textcontainer %}
+
     </div>
 {% endblock partcontainer %}

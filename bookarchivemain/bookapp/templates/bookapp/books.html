@@ -31,7 +31,7 @@
               <a href="{% url 'insidebook' show.pk %}"><img src="/static/img/{{ show.book_img }}" alt=""></a>
           </div>
           <div class="bookinformation">
-              <h3 class="name_block">{{show.book_name}}</h3>
+              <h3 class="name_block"><a href="{% url 'insidebook' show.pk %}">{{show.book_name}}</a></h3>
               <h3 class="author_block">{{show.author}}</h3>
               {% if show.book_status_id == 1 %}
                 <img class="svgicons" src="/static/img/Заброшено.svg" alt="">
