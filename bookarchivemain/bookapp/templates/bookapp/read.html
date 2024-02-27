@@ -1,6 +1,6 @@
 {% extends 'bookapp/baseshablon.html' %}
 {%load static%}
-{% block title %} {% endblock title %}
+{% block title %}{% for i in parts %}{{i.part_name}}{% endfor %}{% endblock title %}
 
 
 {% block partcontainer %}

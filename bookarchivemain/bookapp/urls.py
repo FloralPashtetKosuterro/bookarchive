@@ -23,9 +23,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('main/', main, name='main'),
-    path('katalog/', katalog, name='katalogurl'),
-    path('newbooks/', newbooks, name='newsbooks'),
     path('', books, name='books'),
     path('books/<int:book_id>', booksinside, name='insidebook'),
     path('registration/', registration, name='reg'),

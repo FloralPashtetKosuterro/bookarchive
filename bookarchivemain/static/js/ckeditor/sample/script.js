@@ -1,6 +1,10 @@
 ClassicEditor
 	.create( document.querySelector( '#part_content' ), {
-		// Editor configuration.
+		fontFamily: {
+            options: [
+              'Inter-VariableFont_slnt,wght.ttf'
+            ]
+        },
 	} )
 	.then( editor => {
 		window.editor = editor;

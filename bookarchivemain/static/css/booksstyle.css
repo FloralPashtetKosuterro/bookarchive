@@ -519,6 +519,7 @@ form p{
     margin-left: 5%;
 }
 .text{
+    font-family:myfont !important;
     font-size: calc(20px + 4 * (100vw - 320px) / 880);
 }
 .buttons a{
