@@ -13,11 +13,11 @@
 					{% csrf_token %}
 					<p>Произведение: {{showbooks.book_name}}</p>
 					<label class="chaptername_label" for="part_name" id="part_name"><p>Название главы:</p></label>
-					<input type="text" name="part_name">
+					<input type="text" name="part_name" value="{{partshow.part_name}}">
 					<label for="part_content"><p>Содержание:</p></label>
-					<textarea name="part_content" id="part_content" cols="30"></textarea>
+					<textarea name="part_content" id="part_content" cols="30">{{partshow.part_content}}</textarea>
 					<br>
-    				<button class="button" type="submit">Добавить главу</button>
+    				<button class="button" type="submit">Сохранить главу</button>
 				</form>
 				</div>
 			</div>

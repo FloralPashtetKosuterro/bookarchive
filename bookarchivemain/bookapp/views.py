@@ -48,14 +48,14 @@ def booksinside(request, book_id):
 
 
 def read_part(request, parts_id):
-    books= Books.objects.filter()
+    books = Books.objects.filter()
     test_parts = Parts.objects.get(id=parts_id)
     author = test_parts.book.author
-    parts= Parts.objects.filter(id=parts_id)
+    parts = Parts.objects.filter(id=parts_id)
     data = {
-        'author':author,
-        'parts':parts,
-        'books':books,
+        'author': author,
+        'parts': parts,
+        'books': books,
     }
     return render(request, 'bookapp/read.html', data)
 
@@ -92,7 +92,7 @@ def registration(request):
             user = form.save(commit=False)  # создание объекта без сохранения в БД
             user.set_password(form.cleaned_data['password'])
             user.save()
-            return render(request, 'bookapp/registration_done.html')
+            return redirect('login')
     else:
         form = RegForm()
     return render(request, 'bookapp/reg.html', {'form': form})
@@ -110,6 +110,16 @@ class LoginUser(LoginView):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+def edit_part(request, parts_id, id):
+    part_get = get_object_or_404(Parts, id=parts_id)
+    books = get_object_or_404(Books, id=id, author=request.user)
+    data = {
+        'partshow': part_get,
+        'showbooks': books,
+    }
+    return render(request, 'bookapp/editglava.html', data)
 
 
 def lk(request):

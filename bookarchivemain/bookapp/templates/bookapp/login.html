@@ -2,20 +2,23 @@
 {%load static%}
 
 {% block title%}Авторизация{% endblock title %}
-
+{% block nav2 %}
+{% endblock nav2 %}
 
 {% block regwindow %}
-
-<main>
-    <h1>Авторизация</h1>
+<div class="regwindow">
+    <div class="formback">
+        <h1>Авторизация</h1>
+        <div class="currentform">
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <p><button type="submit" class="submit">Войти</button></p>
     </form>
-</main>
-
+        </div>
+	</div>
+</div>
 {% endblock regwindow %}
 {% block footer %}
   <div class="footer">

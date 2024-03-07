@@ -8,31 +8,37 @@
 	{% block textedit%}
     	<div class="textedit">
             <div class="partblock" id="partblock">
+				<h1>Добавить книгу</h1>
+				<div class="createbook">
 				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
-					<label for="book_name" id="book_name">Название книги:</label>
-                    <input type="text" name="book_name" placeholder="Название главы">
-					<label for="book_description">Краткое описание:</label>
-					<textarea name="book_description" id="book_description" cols="60", rows="20" maxlength='250'></textarea>
-					<label class="control" for="genres">Жанры:
-					{% for i in genres %}
-						<input type="checkbox" name="genres" id="genres" value="{{i.id}}">
-						{{i.genre_name}}
-					{% endfor %}
-						</label>
-					<label for="book_status">Статус:</label>
+					<label for="book_name" id="book_name"><p>Название книги:</p></label>
+                    <input class="bookname_label" type="text" name="book_name">
+					<label class="book_description_label" for="book_description"><p>Краткое описание:</p></label>
+					<textarea class="bookcont_label" name="book_description" id="book_description" cols="60", rows="20" maxlength='250'></textarea>
+					<div class="genreselect">
+						<p>Жанры:</p>
+						{% for i in genres %}
+						<label class="control" for="{{i.id}}">
+								<input type="checkbox" name="genres" id="{{i.id}}" value="{{i.id}}">
+								<span>{{i.genre_name}}</span>
+							</label>
+						{% endfor %}
+					</div>
+					<label for="book_status"><p>Статус:</p></label>
 					<select name="book_status" id="book_status">
 						{% for i in status %}
 							<option value="{{i.id}}">{{i.status_name}}</option>
 						{% endfor %}
 					</select>
-					<input name="book_img" type="file" accept="image/*">
+					<label class="book_cover_label"><p>Обложка:</p></label>
+					<input class="bookimg_field" name="book_img" type="file" accept="image/*">
 					<br>
-    				<button class="button" type="submit">Добавить книгу</button>
+    				<button class="buttoncreatebook" type="submit">Добавить книгу</button>
 				</form>
-
+					</div>
+				</div>
 			</div>
-    	</div>
 	{% endblock textedit %}
 
 {% block script %}

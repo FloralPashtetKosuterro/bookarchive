@@ -21,7 +21,7 @@
                                 <p>Произведение: {{ book.book_name }}</p>
                                 <p>Главы:</p>
                                 {% for part in book.parts.all %}
-                                    <p>{{ part.part_name }}</p>
+                                    <a href="{% url 'edit_part' part.pk part.book.id %}"><p>{{ part.part_name }}</p></a>
                                 {% endfor %}
                                 <a href="{% url 'createglava' book.pk %}">Добавить главу</a>
                             </div>
