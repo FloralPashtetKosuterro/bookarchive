@@ -115,9 +115,18 @@ def logout_view(request):
 def edit_part(request, parts_id, id):
     part_get = get_object_or_404(Parts, id=parts_id)
     books = get_object_or_404(Books, id=id, author=request.user)
+    myupdate=PartsForm(instance=part_get)
+    if request.method == 'POST':
+        form = PartsForm(request.POST, instance=part_get)
+        if form.is_valid():
+            form.save()
+            return redirect('lk')
+        else:
+            form = PartsForm()
     data = {
         'partshow': part_get,
         'showbooks': books,
+        'form':myupdate,
     }
     return render(request, 'bookapp/editglava.html', data)
 
