@@ -17,6 +17,28 @@
                 {% endfor %}
 		    </div>
 	{% endblock textcontainer %}
+		<div class="comments">
+			<div class="comment_header"><h3>Комментарии</h3></div>
+			<div class="postyourcom">
+				<form method="post">
+					{% csrf_token %}
+					<label for="comment_text"><p>Текст комментария:</p></label>
+					<textarea name="comment_text" id="comment_text" cols="30"></textarea>
+					<br>
+    				<button class="button" type="submit">Опубликовать комментарий</button>
+				</form>
+			</div>
+			<div class="comment_placeholder">
+				{% for i in comments %}
+					{{i.comment_author}}
+					{{i.comment_text | safe}}
+				{% endfor %}
+			</div>
+
+		</div>
 
     </div>
 {% endblock partcontainer %}
+{% block script %}
+        <script src="{% static 'js/ckeditor/sample/comment_script.js'%}"></script>
+{% endblock script %}

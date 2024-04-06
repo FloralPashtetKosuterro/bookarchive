@@ -84,3 +84,10 @@ class Parts(models.Model):
 
     def __str__(self):
         return self.part_name
+
+
+class Comments(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    comment_text = RichTextField(blank=True, null=True)
+    comment_author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
+    comment_date = models.DateField(default=datetime.datetime.now())

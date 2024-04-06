@@ -61,3 +61,9 @@ class BooksForm(forms.ModelForm):
     class Meta:
         model = Books
         fields = ['book_name', 'book_description', 'genres', 'book_status', 'book_img', ]
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ['comment_text']

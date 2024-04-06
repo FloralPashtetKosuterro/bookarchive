@@ -52,10 +52,23 @@ def read_part(request, parts_id):
     test_parts = Parts.objects.get(id=parts_id)
     author = test_parts.book.author
     parts = Parts.objects.filter(id=parts_id)
+    comments = Comments.objects.all()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment_text = form.cleaned_data['comment_text']
+            comment_author = request.user.id
+            comment = Comments(comment_text=comment_text, comment_author_id=comment_author)
+            comment.save()
+            return redirect('books')
+        else:
+            form = CommentForm()
+
     data = {
         'author': author,
         'parts': parts,
         'books': books,
+        'comments': comments,
     }
     return render(request, 'bookapp/read.html', data)
 

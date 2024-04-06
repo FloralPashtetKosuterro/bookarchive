@@ -327,11 +327,20 @@ body{
 }
 
 .partcontainer{
-    width:100%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-
+.comments{
+    background:#ECD9C2;
+    margin-top:1%;
+    width:80%;
+}
+.comment_header{
+    display:flex;
+    justify-content:center;
+}
 .textcontainer{
     display:flex;
     flex-direction:column;
