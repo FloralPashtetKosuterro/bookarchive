@@ -55,6 +55,18 @@ class LoginUserForm(AuthenticationForm):
         fields = ['username', 'password']
 
 
+class SettingsForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'email', 'first_name', 'last_name', 'photo']
+
+
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['rating_value']
+
+
 class BooksForm(forms.ModelForm):
     genres = forms.ModelMultipleChoiceField(queryset=Genres.objects.all())
 

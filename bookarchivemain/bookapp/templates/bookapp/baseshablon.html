@@ -15,7 +15,7 @@
     </div>
       <div class="auth">
           {% if user.is_authenticated %}
-          <p><a href="{% url 'lk' %}">{{user.username}}</a></p> <a href="{% url 'logout' %}">Выйти</a>
+          <p><a href="{% url 'lk' %}"><img src="{% static 'img/' %}{{user.photo}}" alt=""></a></p> <a href="{% url 'logout' %}">Выйти</a>
           {% else %}
           <a href="{% url 'login' %}">Вход</a>
           <a href="{% url 'reg' %}">Регистрация</a>
@@ -23,14 +23,8 @@
       </div>
   </div>
         {% block textedit %}
-            <div class="textedit">
-
-            </div>
         {% endblock textedit %}
   {% block buttons%}
-    <div class="buttons">
-
-    </div>
   {% endblock buttons%}
   {% block partcontainer %}
     <div class="partcontainer">
@@ -55,7 +49,10 @@
   {% endblock lkbook%}
 {% block nav2 %}
   <div class="nav2">
-
+      {% block deletebookform %}
+      {% endblock deletebookform %}
+    {% block setting_window %}
+    {% endblock setting_window %}
     <div class="books_block">
       {% for show in bookshow %}
       <div class="currentbook">

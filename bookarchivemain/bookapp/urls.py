@@ -35,4 +35,9 @@ urlpatterns = [
     path('read/<int:parts_id>',read_part,name='read'),
     path('edit/<int:parts_id>/<int:id>',edit_part,name='edit_part'),
     path('admin/', admin.site.urls),
+    path('user_settings', profile_setup, name='profile_setup'),
+    path('lk/<int:pk>/removebook', DeleteBookView.as_view(), name='removebook'),
+    path('lk/<int:pk>/removepart', DeletePartView.as_view(), name='removepart'),
+    path('lk/<int:pk>/edit_book)', edit_book, name='editbook'),
+    path('search/', SearchView.as_view(), name='search_results')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

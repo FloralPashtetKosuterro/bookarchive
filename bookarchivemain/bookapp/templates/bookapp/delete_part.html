@@ -1,0 +1,16 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Удалить главу {% endblock title %}
+
+{% block deletebookform %}
+<div class="deletebackform">
+    <h1>Удаление главы</h1>
+        <form class="deleteform" method="post">
+            {% csrf_token %}
+            <h3>Вы точно хотите удалить главу "{{ object.part_name }}"?</h3>
+            <button class="deletebooksubm">Да, я хочу её удалить!</button>
+        </form>
+</div>
+
+
+{% endblock deletebookform %}

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY='django-insecure-@u0z1f2o_1*xxw%m$e-yg58*djt%g!(nmt+dlx#czef^o=*ile'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['young-writer.tw1.su']
+ALLOWED_HOSTS = []
 
 
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookapp.apps.BookappConfig',
     'ckeditor',
+    'croppie',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL='static/'
-STATIC_ROOT='static/'
 
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
@@ -139,6 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'bookapp.User'
 
 CKEDITOR_CONFIGS = {
     'default': {

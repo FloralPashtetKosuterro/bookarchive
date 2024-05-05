@@ -5,7 +5,8 @@
 
         {% block buttons%}
             <div class="buttons">
-                <a href="{% url 'createbook' %}">Добавить книгу</a>
+                <a class="addbook" href="{% url 'createbook' %}">Добавить книгу</a>
+                <a class="addbook" href="{% url 'profile_setup' %}">Настройки профиля</a>
             </div>
         {% endblock buttons %}
 
@@ -21,9 +22,15 @@
                                 <p>Произведение: {{ book.book_name }}</p>
                                 <p>Главы:</p>
                                 {% for part in book.parts.all %}
-                                    <a href="{% url 'edit_part' part.pk part.book.id %}"><p>{{ part.part_name }}</p></a>
+                                    <div class="part_act">
+                                        <a class="lkbooksinfobtn" href="{% url 'edit_part' part.pk part.book.id %}"><p>{{ part.part_name }}</p></a>
+                                        <a href="{% url 'removepart' part.pk %}" class="removepart_btn">Х</a>
+                                    </div>
                                 {% endfor %}
-                                <a href="{% url 'createglava' book.pk %}">Добавить главу</a>
+                                <p>Действия с произведением:</p>
+                                <a class="editbook_btn" href="{% url 'editbook' book.pk %}">Редактировать описание</a>
+                                <a class="addpart_btn" href="{% url 'createglava' book.pk %}">Добавить главу</a>
+                                <a href="{% url 'removebook' book.pk %}" class="removebook_btn">Удалить книгу</a>
                             </div>
                     </div>
                 {% endblock lkbooksinfo %}

@@ -1,7 +1,18 @@
+from django.contrib.auth.models import AbstractUser
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 import datetime
+from django.utils import timezone
+
+
+def default_time():
+    return timezone.now() + timezone.timedelta(hours=3)
+
+
+class User(AbstractUser):
+    photo = models.ImageField(blank=True, null=True)
 
 
 class Categories(models.Model):
@@ -72,6 +83,20 @@ class Books(models.Model):
         return self.book_name
 
 
+class Rating(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    rating_value = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(1)])
+    book = models.ForeignKey(Books, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
+
+    class Meta():
+        verbose_name = "Рейтинг"
+        verbose_name_plural = "Рейтинги"
+
+    def __str__(self):
+        return f'Оценка: {self.rating_value},' + f' Пользователь: {self.user}'
+
+
 class Parts(models.Model):
     id = models.BigAutoField(primary_key=True)
     part_name = models.TextField()
@@ -90,4 +115,12 @@ class Comments(models.Model):
     id = models.BigAutoField(primary_key=True)
     comment_text = RichTextField(blank=True, null=True)
     comment_author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
-    comment_date = models.DateField(default=datetime.datetime.now())
+    part = models.ForeignKey(Parts, on_delete=models.CASCADE, blank=True, null=True)
+    comment_date = models.DateTimeField(default=default_time)
+
+    class Meta():
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+
+    def __str__(self):
+        return self.comment_text + str(self.comment_author)

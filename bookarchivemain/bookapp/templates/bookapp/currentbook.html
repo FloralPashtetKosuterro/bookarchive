@@ -13,6 +13,7 @@
         <div class="bookimg">
         {% for i in books %}
             <div class="bookinfo">
+                <div class="statusandrating">
                 {% if i.book_status_id == 1 %}
                 <img class="currentsvgicons" src="/static/img/Заброшено.svg" alt="">
               {% elif i.book_status_id == 2 %}
@@ -20,6 +21,21 @@
               {% elif i.book_status_id == 3 %}
                 <img class="currentsvgicons" src="/static/img/Завершено.svg" alt="">
               {% endif %}
+                    <form class="rating-area" method="post">
+                        {% csrf_token %}
+                        <button class="submrating" type="submit">✓</button>
+                        <input type="radio" id="star-5" name="rating_value" value="5">
+                        <label for="star-5" title="Оценка «5»"></label>
+                        <input type="radio" id="star-4" name="rating_value" value="4">
+                        <label for="star-4" title="Оценка «4»"></label>
+                        <input type="radio" id="star-3" name="rating_value" value="3">
+                        <label for="star-3" title="Оценка «3»"></label>
+                        <input type="radio" id="star-2" name="rating_value" value="2">
+                        <label for="star-2" title="Оценка «2»"></label>
+                        <input type="radio" id="star-1" name="rating_value" value="1">
+                        <label for="star-1" title="Оценка «1»"></label>
+                    </form>
+                </div>
                 <div class="author"><h3>Автор: </h3><p class="author_block">{{i.author}}</p></div>
                 <div class="currentgenres">
                     <h3 class="genres_block">Жанры:</h3>

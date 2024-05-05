@@ -3,6 +3,11 @@
 	margin: 0;
 	padding: 0;
 }
+main {
+  /* Чтобы занимал оставшееся пространство */
+  flex-grow: 1;
+  background: red;
+}
 .currentform label{
     font-weight: 800;
     width: 12%;
@@ -29,6 +34,10 @@
 body{
     width:100%;
 	background: #2B201F;
+	margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Конец Констант */
@@ -38,9 +47,7 @@ body{
     display:flex;
 	height: 145px;
 	width: 100%;
-	position:fixed;
 	background: #4C3125;
-	z-index:9999;
 }
 
 .auth{
@@ -50,6 +57,13 @@ body{
     height:100%;
     justify-content: flex-end;
 }
+
+.auth img{
+    border-radius:50%;
+    width:100px;
+    height:100px;
+}
+
 
 .auth p {
     color:#E4CBBA;
@@ -68,11 +82,12 @@ body{
 }
 
 .footer{
+    flex-shrink: 0;
     display:flex;
     width:100%;
     height:15%;
     background: #4C3125;
-    margin-top: 2%;
+    margin-top: auto;
     flex-direction:column;
     align-items:center;
 }
@@ -115,11 +130,11 @@ body{
 .books_block{
     width:90%;
     height:100%;
-    margin-top:10%;
     background:#ECD9C2;
     display:flex;
     flex-wrap: wrap;
-    justify-content: center
+    justify-content: center;
+    margin-bottom: 3%;
 }
 
 .currentbook{
@@ -331,6 +346,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top:3%;
 }
 .comments{
     background:#ECD9C2;
@@ -340,7 +356,117 @@ body{
 .comment_header{
     display:flex;
     justify-content:center;
+    margin:2%;
 }
+
+.comment_header h3{
+    font-family:myfont;
+    font-size: calc(20px + 4*(100vw - 320px) / 880);
+}
+
+.comment_holder{
+    margin:2%;
+    font-family:myfont;
+    border-radius: 16px;
+    background: rgb(249, 235, 219);
+}
+.comment_author{
+    padding:2%;
+}
+.comment_text{
+    padding:2%;
+}
+.postyourcom{
+    padding:2%;
+    display: flex;
+    flex-direction: column;
+}
+.commentform{
+    display: flex;
+    flex-direction: column;
+}
+.postyourcom h3{
+    font-family:myfont;
+}
+.sendcom{
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 3px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    text-decoration: none;
+    color: rgb(43, 32, 31);
+    font-weight: 800;
+    font-family: myfont;
+    border-radius: 10%;
+}
+.commentauthor_info{
+    display:flex;
+    align-items: center;
+}
+
+.commentauthor_info img{
+    border-radius:50%;
+    padding:2%;
+    height:100px;
+    width:100px;
+}
+.css-button {
+	color: #FFFFFF;
+	font-size: 16px;
+	border-radius: 5px;
+	border: solid 1px #000000;
+	text-shadow: 1px 1px 0px #528ECC;
+	box-shadow: inset 1px 1px 5px 0px #000000;
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	font-family: myfont;
+	background: linear-gradient(180deg, #ff0000 10%, #9e2828 100%);
+	display: inline-flex;
+	align-items: center;
+	padding: 0;
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #9e2828 10%, #ff0000 100%);
+}
+.css-button-text {
+	position: relative;
+	padding: 10px 18px;
+}
+.css-button-icon {
+	position: relative;
+	border-right: 1px solid #ffffff29;
+	box-shadow: inset rgb(0 0 0 / 14%) -1px 0 0;
+	padding: 10px 10px;
+}
+.part_act {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    height: 5%;
+    color: #E4CBBA;
+    font-family: myfont;
+    background: #2F1A1A;
+}
+
+.removepart_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 5%;
+    color: #ffffff;
+    font-family: myfont;
+    padding: 5%;
+    background: #a12525;
+}
+
 .textcontainer{
     display:flex;
     flex-direction:column;
@@ -370,7 +496,7 @@ body{
 }
 
 .partblock {
-    margin-top: 15%;
+    margin-top: 3%;
     background: #ECD9C2;
     padding: 2%;
     width: 72%;
@@ -628,6 +754,26 @@ form p{
     flex-wrap: wrap;
 }
 
+.setting_window{
+    padding:1%;
+    background:#ECD9C2;
+    width:95%;
+    display:flex;
+    justify-content:center;
+}
+
+.setting_form{
+    align-items: center;
+    padding:2%;
+    background: #F2F2F2;
+    width: 90%;
+    height: 5%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
 .lkinfo p{
     padding:5%;
     color:#E4CBBA;
@@ -644,54 +790,310 @@ form p{
     margin-bottom:4%;
 }
 
-.lkbooksinfo a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-    height:5%;
-    color:#E4CBBA;
-    font-family:myfont;
+.lkbooksinfobtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 5%;
+    color: #E4CBBA;
+    font-family: myfont;
     background: #2F1A1A;
+    width: 100%;
 }
 
 .buttons{
-    margin-top: 15%;
+    margin-top: 5%;
     margin-left: 5%;
 }
+
+.addbook{
+    margin-top: 10%;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 3px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    text-decoration: none;
+    color: rgb(43, 32, 31);
+    font-weight: 800;
+    font-family: myfont;
+    border-radius: 10%;
+    font-size: calc(20px + 4*(100vw - 320px) / 880);
+    transition:0.5s;
+}
+
+.addbook:hover{
+    margin-top: 10%;
+    cursor: pointer;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 3px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    text-decoration: none;
+    color: rgb(43, 32, 31);
+    font-weight: 800;
+    font-family: myfont;
+    border-radius: 10%;
+    font-size: calc(20px + 4*(100vw - 320px) / 880);
+    transition:0.5s;
+}
+
+.editbook_btn{
+    margin-top: 5%;
+    padding: 2%;
+    color: #000000;
+    font-family: myfont;
+    text-decoration: none;
+    text-align: center;
+    background: #ffffff;
+}
+
+.addpart_btn{
+    padding: 2%;
+    color: #ffffff;
+    font-family: myfont;
+    text-decoration: none;
+    text-align: center;
+    background: #3a5bb9;
+}
+.removebook_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 5%;
+    color: #ffffff;
+    font-family: myfont;
+    background: #a12525;
+}
+.search_and_filter{
+    margin-top:2.5%;
+    margin-bottom:2.5%;
+    width: 95%;
+}
+.search_and_filter input{
+    padding: 1%;
+}
+
+.search_and_filter form {
+    display: flex;
+    justify-content: center;
+}
+
+.search_and_filter button{
+    padding:1%;
+}
+.deletebackform{
+    padding-bottom: 2%;
+    display: flex;
+    width: 75%;
+    background: rgb(236, 217, 194);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.deletebackform h1{
+    font-family:myfont;
+}
+.deletebooksubm {
+    margin-top: 10%;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 3px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    text-decoration: none;
+    color: rgb(43, 32, 31);
+    font-weight: 800;
+    font-family: myfont;
+    border-radius: 10%;
+    font-size: calc(15px + 4*(100vw - 320px) / 880);
+}
+.deleteform{
+    background: #F2F2F2;
+    width: 90%;
+    height: 5%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    align-items:center;
+    padding: 2%;
+}
+
+.deleteform h3{
+    font-family:myfont;
+    animation: tilt-shaking 2.5s infinite;
+    padding:2%;
+    font-size: calc(25px + 4 * (100vw - 320px) / 880);
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .text{
     font-family:myfont !important;
     font-size: calc(20px + 4 * (100vw - 320px) / 880);
 }
-.buttons a{
-    padding:2%;
-    color:#E4CBBA;
-    font-family:myfont;
-    text-decoration:none;
-}
+
 /* Конец личного кабинета */
+/* РЕЙТИНГ */
+.submrating {
+    display: inline-block !important;
+    text-decoration: none !important;
+    background-color: #ffffff !important;
+    color: #3ade16 !important;
+    border: 2px solid #1dfc11 !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    padding: 7%;
+    transition: all 0.8s ease !important;
+    cursor: pointer;
+}
+.statusandrating {
+    display: flex;
+    align-items: center;
+}
+.rating-area {
+    overflow: hidden;
+    width: 30%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 42px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+/*ОТОБРАЖЕНИЕ*/
+.rating-result {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+}
+.rating-result p{
+    font-family:myfont;
+}
+.rating-result span {
+	padding: 0;
+	font-size: 32px;
+	margin: 0 3px;
+	line-height: 1;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+	content: '★';
+}
+.rating-result > span.active {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+
+/* КОНЕЦ РЕЙТИНГА */
 
 /* АДАПТАЦИЯ */
 
 @media (min-width: 320px) and (max-width: 1199.98px){
-.text {
-    font-size: calc(35px + 4 * (100vw - 320px) / 880);
+
+.nav {
+    align-items: center;
+    display: flex;
+    height: 200px;
+    width: 100%;
+    background: #4C3125;
 }
 
+.nav a {
+    margin: 2%;
+    text-decoration: none;
+    color: #E4CBBA;
+    font-family: myfont;
+    font-size:calc(35px + 4 * (100vw - 320px) / 880);
+}
+
+.text {
+    font-size: calc(40px + 4 * (100vw - 320px) / 880);
+}
+.commentform{
+    display: flex;
+    flex-direction: column;
+    font-size: calc(40px + 4 * (100vw - 320px) / 880);
+}
 .textcontainer h3 {
-    font-size: calc(35px + 4 * (100vw - 320px) / 880);
+    font-size: calc(40px + 4 * (100vw - 320px) / 880);
     padding: 2%;
     font-family: myfont;
+}
+.part_act {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    height: 8.1%;
+    color: #E4CBBA;
+    font-family: myfont;
+    background: #2F1A1A;
+}
+.comment_header h3{
+    font-size: calc(40px + 4 * (100vw - 320px) / 880);
 }
 .currentnamebook h3 {
     font-family: myfont;
     padding-top: 1% !important;
     padding-bottom: 1% !important;
     padding-left: 4% !important;
-    font-size: calc(35px + 4 * (100vw - 320px) / 880) !important;
+    font-size: calc(40px + 4 * (100vw - 320px) / 880) !important;
 }
 .read_info p {
-    font-size: calc(35px + 4 * (100vw - 320px) / 880);
+    font-size: calc(40px + 4 * (100vw - 320px) / 880);
     font-family: myfont;
 }
 .currentauthorbook h3 {
@@ -699,18 +1101,31 @@ form p{
     padding-top: 1% !important;
     padding-bottom: 1% !important;
     padding-left: 4% !important;
-    font-size: calc(35px + 4 * (100vw - 320px) / 880) !important;
+    font-size: calc(40px + 4 * (100vw - 320px) / 880) !important;
 }
 .books_block {
     width: 95%;
     height: 100%;
-    margin-top: 17%;
     background: #ECD9C2;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom:3%;
+}
+.comment_text{
+    padding:2%;
+    font-size: calc(35px + 4 * (100vw - 320px) / 880) !important;
 }
 
+.comment_author{
+    font-size: calc(35px + 4 * (100vw - 320px) / 880) !important;
+}
+.commentauthor_info img {
+    border-radius: 50%;
+    padding: 2%;
+    width: 100px;
+    height: 100px;
+}
 .currentbook {
     margin: 1.5%;
     width: 95%;
@@ -729,14 +1144,116 @@ form p{
 }
 
 .buttons {
-    margin-top: 20%;
+    margin-top: 5%;
     margin-left: 5%;
+    display: flex;
+    justify-content: center;
 }
 
-.partblock{
+.partblock {
+    margin-top: 3%;
+    width: 95%;
+}
 
-    margin-top:20%;
+.createbook p{
+    font-size:calc(45px + 4 * (100vw - 320px) / 880);
+}
+.createbook input{
+    padding:5%;
+    font-size:calc(45px + 4 * (100vw - 320px) / 880);
+}
+.createbook textarea{
+    font-size:calc(45px + 4 * (100vw - 320px) / 880);
+}
 
+.control {
+    display: flex;
+    padding: 4%;
+    border: 2px solid rgb(199, 161, 116);
+    border-radius: 10px;
+    background: rgb(243, 238, 229);
+    margin-left: 1%;
+    margin-top: 1%;
+}
+.control span {
+    font-family: myfont;
+    white-space: nowrap;
+    padding: 1%;
+    font-size:calc(35px + 4 * (100vw - 320px) / 880);
+    margin-left: 5%;
+}
+.partblock h1 {
+    font-family: myfont;
+    font-size: calc(45px + 4*(100vw - 320px) / 880);
+    padding-bottom: 2%;
+}
+#book_status{
+    padding:5%;
+    font-size:calc(35px + 4*(100vw - 320px) / 880);
+}
+#book_status option{
+    font-size:calc(10px + 4*(100vw - 320px) / 880);
+}
+.buttoncreatebook {
+    align-self: center;
+    width: 50%;
+    height: 10%;
+    border: 2px solid rgb(43, 32, 31);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    cursor: pointer;
+    padding: 2%;
+    font-family:myfont;
+    font-size:calc(55px + 4*(100vw - 320px) / 880);
+}
+.genreselect input{
+    transform: scale(2);
+}
+.deletebackform {
+    padding-bottom: 2%;
+    display: flex;
+    width: 95%;
+    background: rgb(236, 217, 194);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.deletebackform h1 {
+    font-family: myfont;
+    font-size: calc(50px + 4 * (100vw - 320px) / 880);
+}
+.deleteform h3 {
+    font-family: myfont;
+    animation: tilt-shaking 2.5s infinite;
+    padding: 2%;
+    font-size: calc(50px + 4 * (100vw - 320px) / 880);
+    text-align:center;
+}
+.search_and_filter input {
+    padding:5%;
+    width: 70%;
+    font-size:calc(30px + 4 * (100vw - 320px) / 880);
+}
+.search_and_filter button {
+    padding: 2%;
+    font-size:calc(30px + 4 * (100vw - 320px) / 880);
+}
+.deletebooksubm {
+    margin-top:25%;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 3px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    text-decoration: none;
+    color: rgb(43, 32, 31);
+    font-weight: 800;
+    font-family: myfont;
+    border-radius: 10%;
+    font-size: calc(50px + 4 * (100vw - 320px) / 880);
 }
 
 .svgicons {
@@ -829,6 +1346,81 @@ form p{
     align-self:center;
     font-family:myfont;
 }
+
+.comments {
+    background: #ECD9C2;
+    margin-top: 1%;
+    width: 95%;
+}
+.lkbooksinfo{
+    margin-left: 5%;
+    display: flex;
+    width:100%;
+}
+
+.addbook {
+    margin-top: 10%;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 3px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    text-decoration: none;
+    color: rgb(43, 32, 31);
+    font-weight: 800;
+    font-family: myfont;
+    border-radius: 10%;
+    font-size: calc(35px + 4*(100vw - 320px) / 880);
+    transition: 0.5s;
+}
+.lkbooksinfo img {
+    display:none;
+}
+
+.bookdescription {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+.bookdescription p{
+    font-size: calc(50px + 4*(100vw - 320px) / 880);
+}
+
+.editbook_btn {
+    margin-top: 5%;
+    padding: 5%;
+    color: #000000;
+    font-family: myfont;
+    text-decoration: none;
+    text-align: center;
+    background: #ffffff;
+    font-size: calc(50px + 4*(100vw - 320px) / 880);
+}
+.addpart_btn {
+    padding: 5%;
+    color: #ffffff;
+    font-family: myfont;
+    text-decoration: none;
+    text-align: center;
+    background: #3a5bb9;
+    font-size: calc(50px + 4*(100vw - 320px) / 880);
+}
+.removebook_btn {
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 5%;
+    color: #ffffff;
+    font-family: myfont;
+    background: #a12525;
+    font-size: calc(50px + 4*(100vw - 320px) / 880);
+}
+
 }
 
 /* 2K ADAPT */
@@ -849,5 +1441,6 @@ form p{
     font-family: myfont;
     width: 100%;
 }
+
 
 }

@@ -1,0 +1,46 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Редактировать книгу {% endblock title %}
+
+{% block nav2 %}
+
+{% endblock nav2%}
+	{% block textedit%}
+    	<div class="textedit">
+            <div class="partblock" id="partblock">
+				<h1>Редактировать книгу</h1>
+				<div class="createbook">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<label for="book_name" id="book_name"><p>Название книги:</p></label>
+                    <input class="bookname_label" type="text" name="book_name" value="{{ books.book_name }}">
+					<label class="book_description_label" for="book_description"><p>Краткое описание:</p></label>
+					<textarea class="bookcont_label" name="book_description" id="book_description" cols="60", rows="20" maxlength='250'>{{ books.book_description }}</textarea>
+					<div class="genreselect">
+						<p>Жанры:</p>
+						{% for i in genres %}
+						<label class="control" for="{{i.id}}">
+								<input type="checkbox" name="genres" id="{{i.id}}" value="{{i.id}}" {% if books in i.books.all %} checked {% endif %}>
+								<span>{{i.genre_name}}</span>
+							</label>
+						{% endfor %}
+					</div>
+					<label for="book_status"><p>Статус:</p></label>
+					<select name="book_status" id="book_status">
+						{% for i in status %}
+							<option value="{{i.id}}" {% if i.id == books.book_status_id %} selected {% endif %}>{{i.status_name}}</option>
+						{% endfor %}
+					</select>
+					<label class="book_cover_label"><p>Обложка:</p></label>
+					<input class="bookimg_field" name="book_img" type="file" accept="image/*" value="{{books.book_img}}">
+					<br>
+    				<button class="buttoncreatebook" type="submit">Сохранить изменения</button>
+				</form>
+					</div>
+				</div>
+			</div>
+	{% endblock textedit %}
+
+{% block script %}
+        <script src="{% static 'js/script.js'%}"></script>
+{% endblock script %}

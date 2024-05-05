@@ -14,7 +14,7 @@
     </div>
       <div class="auth">
           {% if user.is_authenticated %}
-          <p><a href="{% url 'lk' %}">{{user.username}}</a></p> <a href="{% url 'logout' %}">Выйти</a>
+          <p><a href="{% url 'lk' %}"><img src="{% static 'img/' %}{{user.photo}}" alt=""></a></p> <a href="{% url 'logout' %}">Выйти</a>
           {% else %}
           <a href="{% url 'login' %}">Вход</a>
           <a href="{% url 'reg' %}">Регистрация</a>
@@ -23,9 +23,14 @@
   </div>
 {% block nav2 %}
   <div class="nav2">
-
+    <div class="search_and_filter">
+        <form action="{% url 'search_results' %}" method="get">
+            <input name="q" type="text" placeholder="Поиск...">
+            <button type="submit">Поиск</button>
+        </form>
+    </div>
     <div class="books_block">
-      {% for show in bookshow %}
+      {% for show in object_list %}
       <div class="currentbook">
           <div class="bookcover">
               <a href="{% url 'insidebook' show.pk %}"><img src="/static/img/{{ show.book_img }}" alt=""></a>
@@ -33,13 +38,25 @@
           <div class="bookinformation">
               <h3 class="name_block"><a href="{% url 'insidebook' show.pk %}">{{show.book_name}}</a></h3>
               <h3 class="author_block">{{show.author}}</h3>
-              {% if show.book_status_id == 1 %}
-                <img class="svgicons" src="/static/img/Заброшено.svg" alt="">
-              {% elif show.book_status_id == 2 %}
-                <img class="svgicons" src="/static/img/В процессе.svg" alt="">
-              {% elif show.book_status_id == 3 %}
-                <img class="svgicons" src="/static/img/Завершено.svg" alt="">
-              {% endif %}
+              <div class="statusandrating">
+                  {% if show.book_status_id == 1 %}
+                    <img class="svgicons" src="/static/img/В процессе.svg" alt="">
+                  {% elif show.book_status_id == 2 %}
+                    <img class="svgicons" src="/static/img/Завершено.svg" alt="">
+                  {% elif show.book_status_id == 3 %}
+                    <img class="svgicons" src="/static/img/Заброшено.svg" alt="">
+                  {% endif %}
+                  <div class="rating-result">
+                      {% for i in numbers %}
+                          {% if i <= show.avg_rating %}
+                            <span class="active"></span>
+                          {% else %}
+                            <span class="inactive"></span>
+                          {% endif %}
+                      {% endfor %}
+
+                    </div>
+              </div>
               <div class="genres">
                   <h3 class="genres_block">Жанры:</h3>
                   {% for genre in show.genres.all %}
@@ -76,7 +93,7 @@
           <h2>Правила использования</h2>
       </div>
       <a class="footer_icons" href="https://vk.com/pashtetkostyan"><img src="/static/img/vk_icon2.svg" alt=""></a>
-      <h2>2024</h2>
+      <h2>© 2024 Юный писатель | hahatun2121@gmail.com</h2>
   </div>
   {% endblock footer %}
 {% block script %}

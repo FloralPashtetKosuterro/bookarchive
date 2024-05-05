@@ -20,18 +20,40 @@
 		<div class="comments">
 			<div class="comment_header"><h3>Комментарии</h3></div>
 			<div class="postyourcom">
-				<form method="post">
-					{% csrf_token %}
-					<label for="comment_text"><p>Текст комментария:</p></label>
-					<textarea name="comment_text" id="comment_text" cols="30"></textarea>
-					<br>
-    				<button class="button" type="submit">Опубликовать комментарий</button>
-				</form>
+				 {% if user.is_authenticated %}
+					<form class="commentform" method="post">
+						{% csrf_token %}
+						<label for="comment_text"><p>Текст комментария:</p></label>
+						<textarea name="comment_text" id="comment_text" cols="30"></textarea>
+						<br>
+						<button class="sendcom" type="submit">Опубликовать комментарий</button>
+					</form>
+         		 {% else %}
+					<h3>Для отправки комментария необходимо <a href="{% url 'login' %}">авторизироваться!</a></h3>
+				 {% endif %}
 			</div>
 			<div class="comment_placeholder">
 				{% for i in comments %}
-					{{i.comment_author}}
-					{{i.comment_text | safe}}
+					<div class="comment_holder">
+						<div class="commentauthor_info">
+							<img src="../static/img/{{i.comment_author.photo}}" alt="">
+							<p class="comment_author">{{i.comment_author}}</p>
+							<p class="comment_author">{{i.comment_date}}</p>
+							<button type="button" class="css-button">
+								<span class="css-button-icon">
+								<i class="fa fa-legal"></i>
+								</span>
+								<span class="css-button-text">
+								<span>Пожаловаться</span>
+								</span>
+							</button>
+						</div>
+
+						<div class="comment_text">
+							{{i.comment_text | safe}}
+						</div>
+
+					</div>
 				{% endfor %}
 			</div>
 
