@@ -1,4 +1,4 @@
-/* Конс	танты */
+/* Константы */
 *{
 	margin: 0;
 	padding: 0;
@@ -524,7 +524,10 @@ body{
 .control {
     display:flex;
     padding:1%;
-    border: 2px solid rgb(199, 161, 116);
+.text {
+    font-family: myfont !important;
+    font-size: calc(10px + 4*(100vw - 320px) / 880);
+}    border: 2px solid rgb(199, 161, 116);
     border-radius: 10px;
     background: rgb(243, 238, 229);
     margin-left: 1%;
@@ -948,7 +951,7 @@ form p{
 
 .text{
     font-family:myfont !important;
-    font-size: calc(10px + 4 * (100vw - 320px) / 880);
+    font-size: calc(20px + 4 * (100vw - 320px) / 880);
 }
 
 /* Конец личного кабинета */

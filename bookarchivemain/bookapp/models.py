@@ -124,3 +124,18 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.comment_text + str(self.comment_author)
+
+class Reports(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    report_author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
+    report_theme = models.CharField(max_length=255)
+    report_content = models.CharField(max_length=255, default=None, blank=True, null=True)
+    comment = models.ForeignKey(Comments, default=None, on_delete=models.CASCADE, blank=True, null=True)
+    book = models.ForeignKey(Books, default=None, on_delete=models.CASCADE, blank=True, null=True)
+
+    class Meta():
+        verbose_name = "Жалоба"
+        verbose_name_plural = "Жалобы"
+
+    def __str__(self):
+        return self.report_theme
