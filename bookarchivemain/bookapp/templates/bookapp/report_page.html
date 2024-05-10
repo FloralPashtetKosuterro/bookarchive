@@ -1,0 +1,21 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Пожаловаться на книгу {% endblock title %}
+
+{% block reportblock %}
+    <div class="reportblock">
+        {% for books in books%}
+        <h1>Жалоба на книгу {{books.book_name}}</h1>
+        {% endfor %}
+        <div class="report_form">
+            <form method="post">
+                {% csrf_token %}
+                <label for="report_theme"><p>Тема жалобы:</p></label>
+                <input type="text" name="report_theme" id="report_theme">
+                <label for="report_content"><p>Содержание жалобы:</p></label>
+                <textarea name="report_content" id="report_content" cols="60" rows="10"></textarea>
+                <button type="submit">Отправить жалобу</button>
+            </form>
+        </div>
+    </div>
+{% endblock reportblock %}
