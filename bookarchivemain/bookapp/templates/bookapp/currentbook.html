@@ -48,6 +48,16 @@
 	{% block book_img %}
 	    <div class="book_img">
            	 <img src="/static/img/{{i.book_img}}" alt="">
+            <a href="{% url 'report_book' i.pk %}">
+								<button type="button" class="css-button">
+								<span class="css-button-icon">
+								<i class="fa fa-legal"></i>
+								</span>
+								<span class="css-button-text">
+								<span>Пожаловаться</span>
+								</span>
+							</button>
+							</a>
 	    </div>
 	{% endblock book_img %}
         {% endfor %}

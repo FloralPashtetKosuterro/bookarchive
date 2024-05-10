@@ -22,8 +22,8 @@
           {% endif %}
       </div>
   </div>
-        {% block textedit %}
-        {% endblock textedit %}
+  {% block textedit %}
+  {% endblock textedit %}
   {% block buttons%}
   {% endblock buttons%}
   {% block partcontainer %}
@@ -49,6 +49,9 @@
   {% endblock lkbook%}
 {% block nav2 %}
   <div class="nav2">
+      {% block reportblock %}
+
+      {% endblock reportblock %}
       {% block deletebookform %}
       {% endblock deletebookform %}
     {% block setting_window %}

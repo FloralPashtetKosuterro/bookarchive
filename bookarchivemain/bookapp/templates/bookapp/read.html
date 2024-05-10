@@ -39,7 +39,8 @@
 							<img src="../static/img/{{i.comment_author.photo}}" alt="">
 							<p class="comment_author">{{i.comment_author}}</p>
 							<p class="comment_author">{{i.comment_date}}</p>
-							<button type="button" class="css-button">
+							<a href="{% url 'report_comment' i.part.book.id i.pk %}">
+								<button type="button" class="css-button">
 								<span class="css-button-icon">
 								<i class="fa fa-legal"></i>
 								</span>
@@ -47,6 +48,7 @@
 								<span>Пожаловаться</span>
 								</span>
 							</button>
+							</a>
 						</div>
 
 						<div class="comment_text">

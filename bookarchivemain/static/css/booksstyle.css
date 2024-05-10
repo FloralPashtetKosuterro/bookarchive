@@ -210,11 +210,15 @@ body{
 }
 
 .book_img{
-   width: 20%;
-   margin:2%;
-
+    width: 20%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+.book_img a{
+    margin-top:10%;
+}
 .book_img img{
    display:block;
    width:100%;
@@ -387,6 +391,56 @@ body{
 }
 .postyourcom h3{
     font-family:myfont;
+}
+.reportblock{
+    padding-bottom: 2%;
+    display: flex;
+    width: 75%;
+    background: rgb(236, 217, 194);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.reportblock h1{
+    font-family:myfont;
+}
+.report_form{
+    background: #F2F2F2;
+    width: 90%;
+    height: 5%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    padding: 2%;
+}
+.report_form form{
+    display: flex;
+    flex-direction: column;
+}
+.report_form input{
+    border: 2px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgba(252, 204, 116, 0.1);
+    padding:2%;
+}
+.report_form textarea{
+    border: 2px solid rgb(76, 49, 37);
+    border-radius: 10px;
+    background: rgba(252, 204, 116, 0.1);
+    resize: none;
+}
+.report_form button{
+    margin-top:2%;
+    align-self: center;
+    width: 50%;
+    height: 10%;
+    border: 2px solid rgb(43, 32, 31);
+    border-radius: 10px;
+    background: rgb(249, 235, 219);
+    cursor: pointer;
+    padding: 2%;
 }
 .sendcom{
     cursor: pointer;

@@ -12,25 +12,6 @@ from django.core.exceptions import PermissionDenied
 
 
 # Create your views here.
-
-def main(request):
-    getitems = Categories.objects.all()
-    getnews = News.objects.filter(news_time__lte=timezone.now()).order_by('-news_time')
-    data = {
-        'categoryshow': getitems,
-        'news': getnews,
-    }
-    return render(request, 'bookapp/index.html', data)
-
-
-def katalog(request):
-    return render(request, 'bookapp/katalog.html')
-
-
-def newbooks(request):
-    return render(request, 'bookapp/newbooks.html')
-
-
 def books(request):
     outbooks = Books.objects.all()
     numbers = list(range(1, 6))
@@ -256,6 +237,7 @@ def profile_setup(request):
         }
         return render(request, 'bookapp/profile_settings.html', data)
 
+
 class DeleteBookView(DeleteView):
     model = Books
     template_name = 'bookapp/delete_book.html'
@@ -266,6 +248,8 @@ class DeleteBookView(DeleteView):
         if obj.author.id != self.request.user.id:
             raise PermissionDenied("You are not the author of this book")
         return obj
+
+
 class DeletePartView(DeleteView):
     model = Parts
     template_name = 'bookapp/delete_part.html'
@@ -276,6 +260,7 @@ class DeletePartView(DeleteView):
         if obj.book.author.id != self.request.user.id:
             raise PermissionDenied("You are not the author of this book")
         return obj
+
 
 def edit_book(request, pk):
     books = get_object_or_404(Books, id=pk, author=request.user)
@@ -300,9 +285,50 @@ class SearchView(ListView):
     model = Books
     template_name = 'bookapp/books.html'
 
-    def get_queryset(self): # новый
+    def get_queryset(self):  # новый
         query = self.request.GET.get('q')
         object_list = Books.objects.filter(
             Q(book_name__icontains=query)
         )
         return object_list
+
+
+def report_comment(request, part_id, pk):
+    report_object = Reports.objects.filter(comment_id=pk)
+    comments = Comments.objects.filter(id=pk)
+    if request.method == 'POST':
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.report_author = request.user
+            report.comment = comments.first()
+            report.save()
+            return redirect('read', part_id)
+    else:
+        form = ReportForm()
+    data = {
+        'reports':report_object,
+        'form': form,
+        'comments':comments,
+    }
+    return render(request, 'bookapp/report_comment_page.html', data)
+
+def report_book(request, pk):
+    report_object = Reports.objects.filter(comment_id=pk)
+    books = Books.objects.filter(id=pk)
+    if request.method == 'POST':
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.report_author = request.user
+            report.book = books.first()
+            report.save()
+            return redirect('insidebook', pk)
+    else:
+        form = ReportForm()
+    data = {
+        'reports':report_object,
+        'form': form,
+        'books':books,
+    }
+    return render(request, 'bookapp/report_page.html', data)

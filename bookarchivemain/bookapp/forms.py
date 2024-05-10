@@ -79,3 +79,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ['comment_text']
+
+
+class ReportForm(forms.ModelForm):
+    class Meta:
+        model = Reports
+        fields = ['report_theme', 'report_content']
