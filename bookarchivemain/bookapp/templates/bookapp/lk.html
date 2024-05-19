@@ -7,6 +7,10 @@
             <div class="buttons">
                 <a class="addbook" href="{% url 'createbook' %}">Добавить книгу</a>
                 <a class="addbook" href="{% url 'profile_setup' %}">Настройки профиля</a>
+                {% if user.is_superuser  %}
+                <a class="addbook" href="{% url 'report_center' %}">Центр жалоб</a>
+                {% else %}
+                {% endif %}
             </div>
         {% endblock buttons %}
 

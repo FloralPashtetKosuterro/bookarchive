@@ -12,6 +12,7 @@
         <div class="currentform">
 
     <form method="post">
+        <p>{{ blocked }}</p>
         {% csrf_token %}
         {{ form.as_p }}
         <p><button type="submit" class="submit">Войти</button></p>
