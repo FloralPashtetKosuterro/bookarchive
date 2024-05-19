@@ -5,6 +5,7 @@ from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm
 from .views import *
+from django.contrib.auth import authenticate
 
 
 class PartsForm(forms.ModelForm):
@@ -54,6 +55,10 @@ class LoginUserForm(AuthenticationForm):
         model = get_user_model()
         fields = ['username', 'password']
 
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['id', 'blocked_reason','is_blocked']
 
 class SettingsForm(forms.ModelForm):
     class Meta:

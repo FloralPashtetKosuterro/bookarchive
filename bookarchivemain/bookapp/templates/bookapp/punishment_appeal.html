@@ -1,0 +1,17 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Обжаловать пользователя {% endblock title %}
+
+{% block deletebookform %}
+<div class="deletebackform">
+    <h1>Удаление книги</h1>
+        <form class="deleteform" method="post">
+            {% csrf_token %}
+            <h3>Вы точно хотите обжаловать пользователя {{ userinf.username }}?</h3>
+            <input type="hidden" name="id" value="{{userinf.id}}">
+            <button class="deletebooksubm">Да, я хочу его обжаловать!</button>
+        </form>
+</div>
+
+
+{% endblock deletebookform %}

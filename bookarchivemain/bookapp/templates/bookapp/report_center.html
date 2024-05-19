@@ -1,0 +1,99 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Центр жалоб {% endblock title %}
+
+{% block report_center_block %}
+    <div class="report_center_block">
+        {% for i in reports %}
+        <div class="inner_report_block">
+            {% if i.comment %}
+            <h3>Жалоба от пользователя {{i.report_author}} на комментарий пользователя <a href="{% url 'read' i.comment.part.id %}">{{i.comment.comment_author}}</a></h3>
+            <div class="report_comment_content">
+                <h3>Содержание жалобы:</h3>
+                <h3 class="report_content_h3">{{i.report_content}}</h3>
+                <h3>Содержание комментария:</h3>
+                <h3 class="report_content_h3">{{i.comment.comment_text | safe}}</h3>
+            </div>
+            <div id="punishbtn" class="archivebtn">
+                <h3>Вынести приговор</h3>
+            </div>
+
+            <div id="punish_block" class="punishment_block">
+                <form method="post">
+                    <h3>Причина блокировки:</h3>
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{i.comment.comment_author.id}}">
+                    <input type="hidden" name="report_id" value="{{i.id}}">
+                    <textarea name="blocked_reason" id="" cols="60" rows="10"></textarea>
+                    <button class="punishment_submit" type="submit">Наказать</button>
+                </form>
+                <div class="act_buttons">
+                    {% with author_id=i.comment.comment_author.id|add:"0"|stringformat:"s" %}
+                        <a class="appeal" href="{% url 'appeal' author_id i.pk %}">Обжаловать</a>
+                    {% endwith %}
+                </div>
+            </div>
+            {% else %}
+            <h3>Жалоба от пользователя {{i.report_author}} на книгу <a href="{% url 'insidebook' i.book.id %}">{{i.book.book_name}}</a></h3>
+            <div class="report_comment_content">
+                <h3>Содержание жалобы:</h3>
+                <h3 class="report_content_h3">{{i.report_content}}</h3>
+            </div>
+            <div id="punishbtn" class="archivebtn">
+                <h3>Вынести приговор</h3>
+            </div>
+
+            <div id="punish_block" class="punishment_block">
+                <form method="post">
+                    <h3>Причина блокировки:</h3>
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{i.book.author.id}}">
+                    <input type="hidden" name="report_id" value="{{i.id}}">
+                    <textarea name="blocked_reason" cols="60" rows="10"></textarea>
+                    <button class="punishment_submit" type="submit">Наказать</button>
+                </form>
+                <div class="act_buttons">
+                    {% with author_id=i.comment.comment_author.id|add:"0"|stringformat:"s" %}
+                        <a class="appeal" href="{% url 'appeal' author_id i.pk %}">Обжаловать</a>
+                    {% endwith %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div id="archivebtn" class="archivebtn">
+            <h3>Архив</h3>
+        </div>
+        <div id="archive_block" class="archive_block">
+        {% for i  in archive_list %}
+            <div id="inner_archive" class="inner_report_block">
+            {% if i.comment %}
+            <h3>Жалоба от пользователя {{i.report_author}} на комментарий пользователя <a href="{% url 'read' i.comment.part.id %}">{{i.comment.comment_author}}</a></h3>
+            <div class="report_comment_content">
+                <h3>Содержание жалобы:</h3>
+                <h3 class="report_content_h3">{{i.report_content}}</h3>
+                <h3>Содержание комментария:</h3>
+                <h3 class="report_content_h3">{{i.comment.comment_text | safe}}</h3>
+                <hr>
+                <h3>Решение: {% if i.decision == True%} Наказан {% else %}Обжалован{% endif %}</h3>
+            </div>
+            {% else %}
+            <h3>Жалоба от пользователя {{i.report_author}} на книгу <a href="{% url 'insidebook' i.book.id %}">{{i.book.book_name}}</a></h3>
+            <div class="report_comment_content">
+                <h3>Содержание жалобы:</h3>
+                <h3 class="report_content_h3">{{i.report_content}}</h3>
+                <hr>
+                <h3>Решение: {% if i.decision == True %} Наказан {% else %}Обжалован{% endif %}</h3>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock report_center_block %}
+
+{% block script %}
+  <script src="{% static 'js/archivebtn.js'%}">
+
+  </script>
+{% endblock script %}

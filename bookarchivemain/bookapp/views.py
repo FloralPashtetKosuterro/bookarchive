@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from bookapp.models import *
@@ -7,8 +7,9 @@ from django.utils import timezone
 from django.views.generic import ListView, DeleteView
 from bookapp.forms import *
 from django.urls import reverse_lazy
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
 from django.core.exceptions import PermissionDenied
+from django.contrib import messages
 
 
 # Create your views here.
@@ -133,8 +134,22 @@ class LoginUser(LoginView):
     template_name = 'bookapp/login.html'
     extra_context = {'title': "Авторизация"}
 
+    def form_valid(self, form):
+        user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+        if user is not None:
+            if user.is_blocked:
+                blocked_reason = user.blocked_reason
+                return render(self.request, 'bookapp/login.html', {'form': form, 'blocked': f'Ваш аккаунт заблокирован администратором. Причина блокировки: {blocked_reason}. За подробностями обращаться к администратору в личные сообщения VK.'})
+            else:
+                login(self.request, user)
+                return redirect('books')
+        else:
+            form.add_error(None, 'Неверный логин или пароль')
+            return render(self.request, 'bookapp/login.html', {'form': form})
+
     def get_success_url(self):
         return reverse_lazy('books')
+
 
 
 def logout_view(request):
@@ -307,11 +322,12 @@ def report_comment(request, part_id, pk):
     else:
         form = ReportForm()
     data = {
-        'reports':report_object,
+        'reports': report_object,
         'form': form,
-        'comments':comments,
+        'comments': comments,
     }
     return render(request, 'bookapp/report_comment_page.html', data)
+
 
 def report_book(request, pk):
     report_object = Reports.objects.filter(comment_id=pk)
@@ -327,8 +343,65 @@ def report_book(request, pk):
     else:
         form = ReportForm()
     data = {
-        'reports':report_object,
+        'reports': report_object,
         'form': form,
-        'books':books,
+        'books': books,
     }
     return render(request, 'bookapp/report_page.html', data)
+
+
+def is_admin(user):
+    return user.is_authenticated and user.is_staff
+
+
+@login_required
+@user_passes_test(is_admin)
+def report_center(request):
+    reports = Reports.objects.filter(status=False)
+    archive_list = Reports.objects.filter(status=True)
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            id = request.POST.get('id')
+            form_id = id
+            user = User.objects.get(id=form_id)
+            user.blocked_reason=form.cleaned_data['blocked_reason']
+            user.is_blocked = True
+            user.save()
+            report_id = request.POST.get('report_id')
+            report = Reports.objects.get(id=report_id)
+            report.status=True
+            report.decision=True
+            report.save()
+            return redirect('report_center')
+    else:
+        form = UserForm()
+    data = {
+        'reports': reports,
+        'archive_list': archive_list,
+    }
+    return render(request, 'bookapp/report_center.html', data)
+
+@login_required
+@user_passes_test(is_admin)
+def appeal(request,author_id,report_id):
+    userinf = User.objects.get(id=author_id)
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            id = request.POST.get('id')
+            form_id = id
+            user = User.objects.get(id=form_id)
+            user.is_blocked=False
+            user.save()
+            report = Reports.objects.get(id=report_id)
+            report.status=True
+            report.decision = False
+            report.save()
+            return redirect('report_center')
+    else:
+        form = UserForm()
+    data = {
+        'userinf':userinf,
+    }
+    return render(request, 'bookapp/punishment_appeal.html', data)

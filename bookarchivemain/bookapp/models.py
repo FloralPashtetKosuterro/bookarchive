@@ -13,7 +13,8 @@ def default_time():
 
 class User(AbstractUser):
     photo = models.ImageField(blank=True, null=True)
-
+    blocked_reason = models.TextField(blank=True, null=True)
+    is_blocked = models.BooleanField(default=False)
 
 class Categories(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -133,6 +134,8 @@ class Reports(models.Model):
     report_content = models.CharField(max_length=255, blank=True, null=True)
     comment = models.ForeignKey(Comments, default=None, on_delete=models.CASCADE, blank=True, null=True)
     book = models.ForeignKey(Books, default=None, on_delete=models.CASCADE, blank=True, null=True)
+    status = models.BooleanField(default=False,blank=True, null=True)
+    decision = models.BooleanField(default=False,blank=True, null=True)
 
     class Meta():
         verbose_name = "Жалоба"
