@@ -13,6 +13,7 @@
         <a href="{% url 'books' %}"><img src="{% static 'img/logoicon.png' %}" alt=""></a>
     </div>
       <div class="auth">
+          <a href="{% url 'stats' %}">Сводная таблица</a>
           {% if user.is_authenticated %}
           <p><a href="{% url 'lk' %}"><img src="{% static 'img/' %}{{user.photo}}" alt=""></a></p> <a href="{% url 'logout' %}">Выйти</a>
           {% else %}
@@ -90,7 +91,7 @@
   {% block footer %}
   <div class="footer">
       <div class="footer_info">
-          <h2>Правила использования</h2>
+          <a href="{% url 'rules' %}"><h2>Правила использования</h2></a>
       </div>
       <a class="footer_icons" href="https://vk.com/pashtetkostyan"><img src="/static/img/vk_icon2.svg" alt=""></a>
       <h2>© 2024 Юный писатель | hahatun2121@gmail.com</h2>

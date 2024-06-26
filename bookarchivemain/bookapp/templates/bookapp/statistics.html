@@ -1,0 +1,80 @@
+{% extends 'bookapp/baseshablon.html' %}
+{%load static%}
+{% block title %} Сводная таблица {% endblock title %}
+
+{% block stats_block %}
+    <div class="stats_block">
+    <h2>Сводные технико-экономические показатели разработки ΠΠ</h2>
+{% block table_block%}
+<div class="table_block">
+<table>
+  <tr>
+    <th>Показатель</th>
+    <th>Ед. измерения</th>
+    <th>Значение показателя</th>
+  </tr>
+  <tr>
+    <td>1. Технические показатели</td>
+    <td class="white"></td>
+    <td class="white"></td>
+  </tr>
+  <tr>
+    <td>Среднее время работы программного продукта</td>
+    <td>час.</td>
+    <td>522</td>
+  </tr>
+  <tr>
+    <td>2. Экономические показатели</td>
+    <td class="white"></td>
+    <td class="white"></td>
+  </tr>
+  <tr>
+    <td>Себестоимость программного продукта</td>
+    <td>руб.</td>
+    <td>129966,15</td>
+  </tr>
+  <tr>
+    <td>Капитальные вложения</td>
+    <td>руб.</td>
+    <td>9253,57</td>
+  </tr>
+  <tr>
+    <td>Прибыль от реализации программного продукта</td>
+    <td>руб.</td>
+    <td>3909,09</td>
+  </tr>
+  <tr>
+    <td>Отпускная цена программного продукта</td>
+    <td>руб.</td>
+    <td>136221,00</td>
+  </tr>
+  <tr>
+    <td>Коэффициент экономической эффективности</td>
+    <td>%</td>
+    <td>2,12</td>
+  </tr>
+  <tr>
+    <td>Срок окупаемости</td>
+    <td>мес.</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>Затраты на машино-час услуг</td>
+    <td>руб./час</td>
+    <td>356,04</td>
+  </tr>
+  <tr>
+    <td>Рентабельность производства</td>
+    <td>%</td>
+    <td>50,00</td>
+  </tr>
+  <tr>
+    <td>Рентабельность продукции</td>
+    <td>%</td>
+    <td>27,7</td>
+  </tr>
+</table>
+</div>
+{% endblock table_block %}
+    </div>
+{% endblock stats_block %}

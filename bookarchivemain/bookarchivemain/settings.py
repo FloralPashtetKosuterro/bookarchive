@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY='django-insecure-@u0z1f2o_1*xxw%m$e-yg58*djt%g!(nmt+dlx#czef^o=*ile'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['young-writer.tw1.su']
 
@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'bookapp.middleware.BlockedUserMiddleware',
 ]
 
 ROOT_URLCONF = 'bookarchivemain.urls'

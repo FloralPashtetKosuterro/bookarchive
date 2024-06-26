@@ -12,7 +12,7 @@ def default_time():
 
 
 class User(AbstractUser):
-    photo = models.ImageField(blank=True, null=True)
+    photo = models.ImageField(default="profile_img.png" ,blank=True, null=True)
     blocked_reason = models.TextField(blank=True, null=True)
     is_blocked = models.BooleanField(default=False)
 
@@ -101,6 +101,7 @@ class Rating(models.Model):
 class Parts(models.Model):
     id = models.BigAutoField(primary_key=True)
     part_name = models.TextField()
+    created_at = models.DateField(default=datetime.datetime.now())
     part_content = RichTextField(blank=True, null=True)
     book = models.ForeignKey(Books, related_name='parts', on_delete=models.CASCADE, null=True)
 

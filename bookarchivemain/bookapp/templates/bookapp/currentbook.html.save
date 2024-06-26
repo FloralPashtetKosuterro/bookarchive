@@ -48,29 +48,23 @@
 	{% block book_img %}
 	    <div class="book_img">
            	 <img src="/static/img/{{i.book_img}}" alt="">
-          {% if user.is_authenticated %}
-          <a href="{% url 'report_book' i.pk %}">
-                                                                <button type="button" class="css-button">
-                                                                <span class="css-button-icon">
-                                                                <i class="fa fa-legal"></i>
-                                                                </span>
-                                                                <span class="css-button-text">
-                                                                <span>Пожаловаться</span>
-                                                                </span>
-                                                        </button>
-                                                        </a>
+	 {% if user.is_authenticated %}
+          <p><a href="{% url 'lk' %}"><img src="{% static 'img/' %}{{user.photo}}" alt=""></a></p> <a href="{% url 'logout' %}">Выйти</a>
           {% else %}
-          <a href="{% url 'login' %}">
-                                                                <button type="button" class="css-button">
-                                                                <span class="css-button-icon">
-                                                                <i class="fa fa-legal"></i>
-                                                                </span>
-                                                                <span class="css-button-text">
-                                                                <span>Чтобы пожаловаться, нужно войти в платформу</span>
-                                                                </span>
-                                                        </button>
-                                                        </a>
+          <a href="{% url 'login' %}">Вход</a>
+          <a href="{% url 'reg' %}">Регистрация</a>
           {% endif %}
+
+            <a href="{% url 'report_book' i.pk %}">
+								<button type="button" class="css-button">
+								<span class="css-button-icon">
+								<i class="fa fa-legal"></i>
+								</span>
+								<span class="css-button-text">
+								<span>Пожаловаться</span>
+								</span>
+							</button>
+							</a>
 	    </div>
 	{% endblock book_img %}
         {% endfor %}

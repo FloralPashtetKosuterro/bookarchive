@@ -34,7 +34,7 @@ def books(request):
 
 def booksinside(request, book_id):
     book = Books.objects.filter(id=book_id)
-    parts = Parts.objects.filter(book=book_id)
+    parts = Parts.objects.filter(book=book_id).order_by('created_at')
 
     if request.method == 'POST':
         form = RatingForm(request.POST)
@@ -63,7 +63,7 @@ def booksinside(request, book_id):
 
 def read_part(request, parts_id):
     books = Books.objects.filter()
-    test_parts = Parts.objects.get(id=parts_id)
+    test_parts = get_object_or_404(Parts, id=parts_id)
     author = test_parts.book.author
     parts = Parts.objects.filter(id=parts_id)
     comments = Comments.objects.filter(part_id=parts_id)
@@ -405,3 +405,10 @@ def appeal(request,author_id,report_id):
         'userinf':userinf,
     }
     return render(request, 'bookapp/punishment_appeal.html', data)
+
+def rules(request):
+    return render(request, 'bookapp/rules.html')
+
+def statistics(request):
+    return render(request, 'bookapp/statistics.html')
+
